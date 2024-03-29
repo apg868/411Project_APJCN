@@ -23,9 +23,7 @@ export default function Home() {
           <a href="#" className="text-center">Dashboard</a>
           <a href="#" className="text-center">About Us</a>
           <a href="#" className="text-center">View Transaction History</a>
-          <a href="#" className="text-center">Enter Expense</a>
           <a href="#" className="text-center">Set Budget</a>
-          <a href="#" className="text-center">Edit Expense</a>
           <a href="#" className="text-center">Help and Support</a>
         </div>
 
