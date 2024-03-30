@@ -19,19 +19,22 @@ export default function Home() {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-col space-y-12 flex-grow">
+        <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
           <a href="#" className="text-center">Dashboard</a>
           <a href="#" className="text-center">About Us</a>
           <a href="#" className="text-center">View Transaction History</a>
-          <a href="#" className="text-center">Enter Expense</a>
-          <a href="#" className="text-center">Set Budget</a>
-          <a href="#" className="text-center">Edit Expense</a>
+          <a href="#" className="text-center">View/Set Budget</a>
           <a href="#" className="text-center">Help and Support</a>
         </div>
 
         {/* Login */}
-        <div className="text-center">
-          <a href="#">Account</a>
+        <div className="flex items-center justify-left mb-4">
+          <div className="flex items-left ml-4"> 
+            <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div> 
+          </div>
+          <div className="flex text-center items-center text-white font-bold ml-2">
+            <a href="#">Account</a>
+          </div>
         </div>
       </nav>
 
