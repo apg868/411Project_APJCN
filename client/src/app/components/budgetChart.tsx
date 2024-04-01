@@ -1,5 +1,6 @@
 import React from 'react';
 import LinearProgress from '@mui/joy/LinearProgress';
+import { PieChart } from '@mui/x-charts/PieChart';
 
 interface BudgetData {
   category: string;
@@ -43,6 +44,7 @@ const BudgetChart: React.FC<BudgetChartProps> = ({ budgetData, summaryData }) =>
           {/* Replace with actual pie chart component */}
           <div>
             {/* Render your pie chart with dummy data */}
+            
           </div>
           <div>
             <span>Spent So Far: {summaryData.spentSoFar}</span>
