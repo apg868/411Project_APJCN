@@ -7,7 +7,8 @@ interface chartData {
     data: number[];
 }
 
-const dashboardVisualization = () => {
+// Dashboard Visualization Component
+const dashboardVisualization: React.FC<chartData> = ({labels, data}) => {
     return (
         <div className="mb-8" style={{ height: "30vh" }}>
           <div className="bg-white rounded-lg shadow-md p-4 h-full">

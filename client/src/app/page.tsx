@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BudgetChart from "./components/budgetChart";
+import Budget from "./components/budget";
 import DashboardVisualization from "./components/dashboardVisualization";
 
 export default function Home() {
@@ -63,10 +63,10 @@ export default function Home() {
       {/* Dashboard */}
       <main className="flex-1 p-8">
         {/* Visualization */}
-        <DashboardVisualization />
+        <DashboardVisualization labels={dummyChartData.labels} data={dummyChartData.data}/>
 
         {/* Category + Budget Summary Component */}
-        <BudgetChart budgetData={dummyBudgetData} summaryData={dummySummaryData} />
+        <Budget budgetData={dummyBudgetData} summaryData={dummySummaryData} />
          
       </main>
     </div>

@@ -13,12 +13,13 @@ interface SummaryData {
   leftForBudget: string;
 }
 
-interface BudgetChartProps {
+interface BudgetProps {
   budgetData: BudgetData[];
   summaryData: SummaryData;
 }
 
-const BudgetChart: React.FC<BudgetChartProps> = ({ budgetData, summaryData }) => {
+// Budget Component
+const Budget: React.FC<BudgetProps> = ({ budgetData, summaryData }) => {
   return (
     <div className="flex space-x-8">
       {/* Budget Breakdown */}
@@ -27,9 +28,11 @@ const BudgetChart: React.FC<BudgetChartProps> = ({ budgetData, summaryData }) =>
           <b><h2>Budget Breakdown</h2></b>
           {/* List of budget items */}
           {budgetData.map((item, index) => (
-            <div key={index}>
-              <span style={{}}>{item.category}</span>
-              <span style={{}}>{`$${item.spent.toFixed(2)} of $${item.budget.toFixed(2)}`}</span>
+            <div key={index} style={{paddingBottom:"3vh"}}>
+              <div style={{display: "flex", justifyContent: "space-between"}}>
+                <span>{item.category}</span>
+                <span>{`$${item.spent.toFixed(2)} of $${item.budget.toFixed(2)}`}</span>
+              </div>
               {/* Render progress bar with item.spent and item.budget */}
               <LinearProgress determinate value={item.spent/item.budget*100} style={{color: "green"}} size="lg"/>
             </div>
@@ -46,7 +49,7 @@ const BudgetChart: React.FC<BudgetChartProps> = ({ budgetData, summaryData }) =>
             {/* Render your pie chart with dummy data */}
             
           </div>
-          <div>
+          <div style={{display: "flex", justifyContent: "space-between"}}>
             <span>Spent So Far: {summaryData.spentSoFar}</span>
             <span>Left for Budget: {summaryData.leftForBudget}</span>
           </div>
@@ -56,4 +59,4 @@ const BudgetChart: React.FC<BudgetChartProps> = ({ budgetData, summaryData }) =>
   );
 };
 
-export default BudgetChart;
+export default Budget;
