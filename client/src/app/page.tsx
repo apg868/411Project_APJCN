@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BudgetChart from "./budgetChart";
+import BudgetChart from "./components/budgetChart";
 
 export default function Home() {
   // Dummy data for visualization
