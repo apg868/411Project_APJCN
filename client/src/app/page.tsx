@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BudgetChart from "./components/budgetChart";
+import DashboardVisualization from "./components/dashboardVisualization";
 
 export default function Home() {
   // Dummy data for visualization
@@ -62,24 +63,7 @@ export default function Home() {
       {/* Dashboard */}
       <main className="flex-1 p-8">
         {/* Visualization */}
-        <div className="mb-8" style={{ height: "30vh" }}>
-          <div className="bg-white rounded-lg shadow-md p-4 h-full">
-            {/* Replace with actual chart component */}
-            <div>
-              <h2>Visualization</h2>
-              {/* Toggle buttons */}
-              <div>
-                <button>Daily</button>
-                <button>Weekly</button>
-                <button>Monthly</button>
-              </div>
-              {/* Dummy chart */}
-              <div>
-                {/* Render your chart with dummyChartData */}
-              </div>
-            </div>
-          </div>
-        </div>
+        <DashboardVisualization />
 
         {/* Category + Budget Summary Component */}
         <BudgetChart budgetData={dummyBudgetData} summaryData={dummySummaryData} />

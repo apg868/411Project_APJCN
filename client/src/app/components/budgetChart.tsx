@@ -1,4 +1,5 @@
 import React from 'react';
+import LinearProgress from '@mui/joy/LinearProgress';
 
 interface BudgetData {
   category: string;
@@ -22,13 +23,14 @@ const BudgetChart: React.FC<BudgetChartProps> = ({ budgetData, summaryData }) =>
       {/* Budget Breakdown */}
       <div className="flex-1" style={{ height: "50vh", width: "60%" }}>
         <div className="bg-white rounded-lg shadow-md p-4 h-full">
-          <h2>Budget Breakdown</h2>
+          <b><h2>Budget Breakdown</h2></b>
           {/* List of budget items */}
           {budgetData.map((item, index) => (
             <div key={index}>
-              <span>{item.category}</span>
-              <span>{`$${item.spent.toFixed(2)} of $${item.budget.toFixed(2)}`}</span>
+              <span style={{}}>{item.category}</span>
+              <span style={{}}>{`$${item.spent.toFixed(2)} of $${item.budget.toFixed(2)}`}</span>
               {/* Render progress bar with item.spent and item.budget */}
+              <LinearProgress determinate value={item.spent/item.budget*100} style={{color: "green"}} size="lg"/>
             </div>
           ))}
         </div>
@@ -37,7 +39,7 @@ const BudgetChart: React.FC<BudgetChartProps> = ({ budgetData, summaryData }) =>
       {/* Budget Summary */}
       <div className="flex-1" style={{ height: "30vh", width: "40%" }}>
         <div className="bg-white rounded-lg shadow-md p-4 h-full">
-          <h2>Budget Summary</h2>
+          <b><h2>Budget Summary</h2></b>
           {/* Replace with actual pie chart component */}
           <div>
             {/* Render your pie chart with dummy data */}
