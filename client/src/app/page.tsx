@@ -1,6 +1,27 @@
 import Image from "next/image";
+import BudgetChart from "./budgetChart";
 
 export default function Home() {
+  // Dummy data for visualization
+  const dummyChartData = {
+    labels: ["Date 1", "Date 2", "Date 3", "Date 4"],
+    data: [30, 50, 45, 60],
+  };
+
+  // Dummy data for budget breakdown
+  const dummyBudgetData = [
+    { category: "Total", spent: 900.21, budget: 1500 },
+    { category: "Car Payments", spent: 300.21, budget: 500 },
+    { category: "Groceries", spent: 200.00, budget: 300 },
+    { category: "Rent + Utilities", spent: 400.00, budget: 700 },
+  ];
+
+  // Dummy data for budget summary
+  const dummySummaryData = {
+    spentSoFar: "900.21",
+    leftForBudget: "599.79",
+  };
+
   return (
     <div className="flex min-h-screen">
       {/* Navbar */}
@@ -43,29 +64,26 @@ export default function Home() {
         {/* Visualization */}
         <div className="mb-8" style={{ height: "30vh" }}>
           <div className="bg-white rounded-lg shadow-md p-4 h-full">
-            Visualization
-          </div>
-        </div>
-
-        {/* Category + Budget Summary */}
-        <div className="flex space-x-8">
-
-          <div className="flex-1" style={{ height: "25vh", width: "60%" }}>
-            <div className="bg-white rounded-lg shadow-md p-4 h-full">
-              Categroy
-            </div>
-
-            <div className="bg-white rounded-lg shadow-md p-4 h-full mt-4">
-              Extra
-            </div>
-          </div>
-
-          <div className="flex-1" style={{ height: "52vh", width: "40%" }}>
-            <div className="bg-white rounded-lg shadow-md p-4 h-full">
-              Budget Summary
+            {/* Replace with actual chart component */}
+            <div>
+              <h2>Visualization</h2>
+              {/* Toggle buttons */}
+              <div>
+                <button>Daily</button>
+                <button>Weekly</button>
+                <button>Monthly</button>
+              </div>
+              {/* Dummy chart */}
+              <div>
+                {/* Render your chart with dummyChartData */}
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Category + Budget Summary Component */}
+        <BudgetChart budgetData={dummyBudgetData} summaryData={dummySummaryData} />
+         
       </main>
     </div>
   );
