@@ -6,7 +6,7 @@ export default function Home() {
   // Dummy data for visualization
   const dummyChartData = {
     labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5", "Date 6"],
-    data: [30, 50, 45, 60, 70, 80],
+    data: [30, 50, 45, 60, 70, 100],
   };
 
   // Dummy data for budget breakdown
@@ -16,10 +16,18 @@ export default function Home() {
     { category: "Rent + Utilities", spent: 400.00, budget: 700 },
   ];
 
+
   // Dummy data for budget summary
+  let spentSoFar = 0;
+  for (let item of dummyBudgetData) {
+    spentSoFar += item.spent;
+  }
+
+  const budget = 1500;
+  
   const dummySummaryData = {
-    spentSoFar: "900.21",
-    leftForBudget: "599.79",
+    spentSoFar: spentSoFar,
+    leftForBudget: (budget - spentSoFar)
   };
 
   return (
