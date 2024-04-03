@@ -5,13 +5,12 @@ import DashboardVisualization from "./components/dashboardVisualization";
 export default function Home() {
   // Dummy data for visualization
   const dummyChartData = {
-    labels: ["Date 1", "Date 2", "Date 3", "Date 4"],
-    data: [30, 50, 45, 60],
+    labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5", "Date 6"],
+    data: [30, 50, 45, 60, 70, 80],
   };
 
   // Dummy data for budget breakdown
   const dummyBudgetData = [
-    { category: "Total", spent: 900.21, budget: 1500 },
     { category: "Car Payments", spent: 300.21, budget: 500 },
     { category: "Groceries", spent: 200.00, budget: 300 },
     { category: "Rent + Utilities", spent: 400.00, budget: 700 },

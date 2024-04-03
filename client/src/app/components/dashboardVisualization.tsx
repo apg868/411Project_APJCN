@@ -1,6 +1,8 @@
-import React from 'react';
+'use client'
+import * as React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { BarChart } from '@mui/x-charts';
 
 interface chartData {
     labels: string[];
@@ -10,13 +12,13 @@ interface chartData {
 // Dashboard Visualization Component
 const dashboardVisualization: React.FC<chartData> = ({labels, data}) => {
     return (
-        <div className="mb-8" style={{ height: "30vh" }}>
+        <div className="mb-8" style={{ height: "40vh" }}>
           <div className="bg-white rounded-lg shadow-md p-4 h-full">
             {/* Replace with actual chart component */}
             <div>
               <b><h2>Visualization</h2></b>
               {/* Toggle buttons */}
-              <div style={{display:"flex", justifyContent:"right"}}>
+              <div className="flex justify-end pb-0">
                 <ToggleButtonGroup
                     color="primary"
                     exclusive
@@ -28,8 +30,14 @@ const dashboardVisualization: React.FC<chartData> = ({labels, data}) => {
                 </ToggleButtonGroup>
               </div>
               {/* Dummy chart */}
-              <div>
+              <div className="flex items-center justify-center">
                 {/* Render your chart with dummyChartData */}
+                <BarChart
+                  xAxis={[{ scaleType: 'band', data: labels }]}
+                  series={[{ data: data }]}
+                  width={1200}
+                  height={310}
+                />
               </div>
             </div>
           </div>
