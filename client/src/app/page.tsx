@@ -22,7 +22,7 @@ export default function Home() {
         <div className="flex flex-col space-y-12 flex-grow">
           <a href="#" className="text-center">Dashboard</a>
           <a href="#" className="text-center">About Us</a>
-          <a href="#" className="text-center">View Transaction History</a>
+          <a href="ViewTransactionHistory.tsx" className="text-center">View Transaction History</a>
           <a href="#" className="text-center">Set Budget</a>
           <a href="#" className="text-center">Help and Support</a>
         </div>
