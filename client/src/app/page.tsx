@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Budget from "./components/budget";
 import DashboardVisualization from "./components/dashboardVisualization";
+import Link from "next/link";
 
 export default function Home() {
   // Dummy data for visualization
@@ -48,12 +49,22 @@ export default function Home() {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
-          <a href="#" className="text-center">Dashboard</a>
-          <a href="#" className="text-center">About Us</a>
-          <a href="#" className="text-center">View Transaction History</a>
-          <a href="#" className="text-center">View/Set Budget</a>
-          <a href="#" className="text-center">Help and Support</a>
+       <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
+          <Link href="/" className="text-center">
+            Dashboard
+          </Link>
+          <Link href="/" className="text-center">
+            About Us
+          </Link>
+          <Link href="/" className="text-center">
+            View Transaction History
+          </Link>
+          <Link href="/viewSetBudget" className="text-center">
+            View Budget
+          </Link>
+          <Link href="/" className="text-center">
+            Help and Support
+          </Link>
         </div>
 
         {/* Login */}
