@@ -1,35 +1,10 @@
-import Image from "next/image";
-import Budget from "./components/budget";
-import DashboardVisualization from "./components/dashboardVisualization";
 import Link from "next/link";
 
-export default function Home() {
-  // Dummy data for visualization
-  const dummyChartData = {
-    labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5", "Date 6"],
-    data: [30, 50, 45, 60, 70, 100],
-  };
-
-  // Dummy data for budget breakdown
-  const dummyBudgetData = [
-    { category: "Car Payments", spent: 300.21, budget: 500 },
-    { category: "Groceries", spent: 200.0, budget: 300 },
-    { category: "Rent + Utilities", spent: 400.0, budget: 700 },
-  ];
-
-  // Dummy data for budget summary
-  let spentSoFar = 0;
-  for (let item of dummyBudgetData) {
-    spentSoFar += item.spent;
-  }
-
-  const budget = 1500;
-
-  const dummySummaryData = {
-    spentSoFar: spentSoFar,
-    leftForBudget: budget - spentSoFar,
-  };
-
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex min-h-screen">
       {/* Navbar */}
@@ -57,7 +32,7 @@ export default function Home() {
           <Link href="/dashboard/view-transactions" className="text-center">
             View Transaction History
           </Link>
-          <Link href="/viewSetBudget" className="text-center">
+          <Link href="/dashboard/view-budget" className="text-center">
             View Budget
           </Link>
           <Link href="/" className="text-center">
@@ -79,13 +54,7 @@ export default function Home() {
       {/* Dashboard */}
       <main className="flex-1 p-8">
         {/* Visualization */}
-        <DashboardVisualization
-          labels={dummyChartData.labels}
-          data={dummyChartData.data}
-        />
-
-        {/* Category + Budget Summary Component */}
-        <Budget budgetData={dummyBudgetData} summaryData={dummySummaryData} />
+        {children}
       </main>
     </div>
   );
