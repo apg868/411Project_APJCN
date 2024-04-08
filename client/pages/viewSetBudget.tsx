@@ -1,40 +1,58 @@
 import React from 'react';
 import Link from "next/link";
+import '../src/app/globals.css'
 
 const viewSetBudget = () => {
     return (
-        <div style={{ display: 'flex', minHeight: '100vh' }}>
+        <div className="flex min-h-screen">
             {/* Navbar */}
-            <nav style={{ background: 'linear-gradient(to top, #667eea 0%, #4c51bf 100%)', backgroundColor: 'rgba(31, 41, 55, 0.3)', width: '120px', padding: '16px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <nav className="bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
                 {/* Icons */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-                    <div style={{ width: '48px', height: '48px', backgroundColor: '#cbd5e0', borderRadius: '9999px' }}></div>
-                    <div style={{ width: '48px', height: '48px', backgroundColor: '#cbd5e0', borderRadius: '9999px' }}></div>
+                <div className="flex items-center justify-between mb-4">
+
+                <div className="flex items-center"> 
+                    <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div> 
                 </div>
+                
+                <div className="flex items-center space-x-4">
+                    <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
+                    <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
+                </div>
+                </div>
+
                 {/* Tabs */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '48px', flexGrow: 1, fontWeight: 'bold', color: '#ffffff' }}>
-                    <Link href="./" style={{ textAlign: 'center' }}>
-                        Dashboard
-                    </Link>
-                    <Link href="./" style={{ textAlign: 'center' }}>
-                        About Us
-                    </Link>
-                    <Link href="./" style={{ textAlign: 'center' }}>
-                        View Transaction History
-                    </Link>
-                    <Link href="/viewSetBudget" style={{ textAlign: 'center' }}>
-                        View Budget
-                    </Link>
-                    <Link href="./" style={{ textAlign: 'center' }}>
-                        Help and Support
-                    </Link>
+            <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
+                <Link href="./" className="text-center">
+                    Dashboard
+                </Link>
+                <Link href="./" className="text-center">
+                    About Us
+                </Link>
+                <Link href="./" className="text-center">
+                    View Transaction History
+                </Link>
+                <Link href="/viewSetBudget" className="text-center">
+                    View Budget
+                </Link>
+                <Link href="./" className="text-center">
+                    Help and Support
+                </Link>
+                </div>
+
+                {/* Login */}
+                <div className="flex items-center justify-left mb-4">
+                <div className="flex items-left ml-4"> 
+                    <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div> 
+                </div>
+                <div className="flex text-center items-center text-white font-bold ml-2">
+                    <a href="#">Account</a>
+                </div>
                 </div>
             </nav>
-            {/* Main Content */}
-            <main style={{ flex: 1, padding: '2rem' }}>
-                <div style = {{textAlign:'center'}}>
-                    hi
-                </div>
+
+            {/* Dashboard */}
+            <main className="flex-1 p-8">
+                
             </main>
         </div>
     );
