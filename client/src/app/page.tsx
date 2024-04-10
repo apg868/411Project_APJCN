@@ -2,35 +2,9 @@ import Image from "next/image";
 import Budget from "./components/budget";
 import DashboardVisualization from "./components/dashboardVisualization";
 import Link from "next/link";
+import { dummyChartData, dummyBudgetData, dummySummaryData } from "./data";
 
 export default function Home() {
-  // Dummy data for visualization
-  const dummyChartData = {
-    labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5", "Date 6"],
-    data: [30, 50, 45, 60, 70, 100],
-  };
-
-  // Dummy data for budget breakdown
-  const dummyBudgetData = [
-    { category: "Car Payments", spent: 300.21, budget: 500 },
-    { category: "Groceries", spent: 200.00, budget: 300 },
-    { category: "Rent + Utilities", spent: 400.00, budget: 700 },
-  ];
-
-
-  // Dummy data for budget summary
-  let spentSoFar = 0;
-  for (let item of dummyBudgetData) {
-    spentSoFar += item.spent;
-  }
-
-  const budget = 1500;
-  
-  const dummySummaryData = {
-    spentSoFar: spentSoFar,
-    leftForBudget: (budget - spentSoFar)
-  };
-
   return (
     <div className="flex min-h-screen">
       {/* Navbar */}
