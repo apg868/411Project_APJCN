@@ -6,10 +6,7 @@ import { dummyBudgetData, dummySummaryData } from '@/app/data';
 import LinearProgress from '@mui/joy/LinearProgress';
 import AddIcon from '@mui/icons-material/Add';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import Button from '@mui/material/Button';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { Tooltip } from '@mui/material';
+import { Button, Tooltip, ToggleButton, ToggleButtonGroup } from '@mui/material';
 
 const viewSetBudget = () => {
     return (
