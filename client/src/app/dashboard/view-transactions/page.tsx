@@ -3,7 +3,18 @@ import React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import LinearProgress from "@mui/joy/LinearProgress";
-import { PieChart, Pie, Cell, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Legend,
+} from "recharts";
 
 export default function Transaction() {
   // Dummy data for the items list
@@ -31,9 +42,21 @@ export default function Transaction() {
   };
 
   const buttonStyles = {
-    daily: { backgroundColor: "red", color: "white", "&:hover": { backgroundColor: "darkred" } },
-    weekly: { backgroundColor: "brown", color: "white", "&:hover": { backgroundColor: "darkbrown" } },
-    monthly: { backgroundColor: "orange", color: "white", "&:hover": { backgroundColor: "darkorange" } },
+    daily: {
+      backgroundColor: "red",
+      color: "white",
+      "&:hover": { backgroundColor: "darkred" },
+    },
+    weekly: {
+      backgroundColor: "brown",
+      color: "white",
+      "&:hover": { backgroundColor: "darkbrown" },
+    },
+    monthly: {
+      backgroundColor: "orange",
+      color: "white",
+      "&:hover": { backgroundColor: "darkorange" },
+    },
   };
 
   return (
@@ -41,7 +64,12 @@ export default function Transaction() {
       <h2 className="text-xl font-bold mb-4">Visualization</h2>
 
       <div className="w-full px-4 flex justify-center">
-        <BarChart width={500} height={300} data={barChartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <BarChart
+          width={500}
+          height={300}
+          data={barChartData}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
@@ -56,21 +84,36 @@ export default function Transaction() {
       <div className="w-full px-4 my-4 flex flex-col items-center">
         <div className="flex justify-center pb-3">
           <ToggleButtonGroup exclusive aria-label="Platform">
-            <ToggleButton value="daily" style={buttonStyles.daily}>Daily</ToggleButton>
-            <ToggleButton value="weekly" style={buttonStyles.weekly}>Weekly</ToggleButton>
-            <ToggleButton value="monthly" style={buttonStyles.monthly}>Monthly</ToggleButton>
+            <ToggleButton value="daily" style={buttonStyles.daily}>
+              Daily
+            </ToggleButton>
+            <ToggleButton value="weekly" style={buttonStyles.weekly}>
+              Weekly
+            </ToggleButton>
+            <ToggleButton value="monthly" style={buttonStyles.monthly}>
+              Monthly
+            </ToggleButton>
           </ToggleButtonGroup>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-4 w-full">
-          <b><h2 style={{ marginBottom: "2vh" }}>Transaction Breakdown</h2></b>
+          <b>
+            <h2 style={{ marginBottom: "2vh" }}>Transaction Breakdown</h2>
+          </b>
           {itemsData.map((item, index) => (
             <div key={index} style={{ marginBottom: "4vh" }}>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: COLORS[item.category] }}>{item.category}</span>
-                <span>{`$${item.spent.toFixed(2)} of $${item.budget.toFixed(2)}`}</span>
+                <span style={{ color: COLORS[item.category] }}>
+                  {item.category}
+                </span>
+                <span>{`$${item.spent.toFixed(2)} of $${item.budget.toFixed(
+                  2
+                )}`}</span>
               </div>
-              <LinearProgress variant="determinate" value={(item.spent / item.budget) * 100} />
+              <LinearProgress
+                variant="determinate"
+                value={(item.spent / item.budget) * 100}
+              />
             </div>
           ))}
         </div>
@@ -78,8 +121,18 @@ export default function Transaction() {
 
       <div className="w-full flex justify-around px-4">
         <PieChart width={290} height={290}>
-          <Pie data={itemsData.map(({ category, spent }) => ({ name: category, value: spent }))}
-               cx="50%" cy="50%" outerRadius={100} fill="#8884d8" dataKey="value" nameKey="name">
+          <Pie
+            data={itemsData.map(({ category, spent }) => ({
+              name: category,
+              value: spent,
+            }))}
+            cx="50%"
+            cy="50%"
+            outerRadius={100}
+            fill="#8884d8"
+            dataKey="value"
+            nameKey="name"
+          >
             {itemsData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[entry.category]} />
             ))}
@@ -90,9 +143,6 @@ export default function Transaction() {
     </div>
   );
 }
-
-
-
 
 // "use client";
 // import React from "react";
