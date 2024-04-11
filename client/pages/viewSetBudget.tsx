@@ -31,7 +31,7 @@ const viewSetBudget = () => {
                 <Link href="./" className="text-center">
                     Dashboard
                 </Link>
-                <Link href="./" className="text-center">
+                <Link href="/aboutUs" className="text-center">
                     About Us
                 </Link>
                 <Link href="./" className="text-center">
