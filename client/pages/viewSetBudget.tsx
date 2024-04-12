@@ -40,7 +40,7 @@ const viewSetBudget = () => {
                 <Link href="/viewSetBudget" className="text-center">
                     View Budget
                 </Link>
-                <Link href="./" className="text-center">
+                <Link href="/help" className="text-center">
                     Help and Support
                 </Link>
                 </div>
@@ -59,7 +59,9 @@ const viewSetBudget = () => {
             {/* Dashboard */}
             <main className="flex-1 p-8">
                 <div style={{display: "flex", justifyContent: "space-between", fontWeight: "bold"}}>
-                    View Budget
+                    <div style = {{fontSize: "2rem"}}>
+                        <h1>View Budget</h1>
+                    </div>
                     <div>
                         {/* Set Budget Button */}
                         <Link href="/setBudget" className="text-center">

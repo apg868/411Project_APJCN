@@ -36,7 +36,7 @@ export default function Home() {
           <Link href="/viewSetBudget" className="text-center">
             View Budget
           </Link>
-          <Link href="/" className="text-center">
+          <Link href="/help" className="text-center">
             Help and Support
           </Link>
         </div>
