@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from "next/link";
 import '../src/app/globals.css';
+import { TextField } from '@mui/material';
 
 const help = () => {
     return (
@@ -52,7 +53,31 @@ const help = () => {
 
             {/* Dashboard */}
             <main className="flex-1 p-8">
-                
+                {/* Title */}
+                <div style = {{fontSize: "2rem", fontWeight: "bold", textAlign: "center"}}>
+                    <h1>Help And Support</h1>
+                </div>
+
+                {/* FAQs */}
+                <div style = {{marginBottom: '5vh'}}>
+                    <h2 style = {{fontSize: "1.5rem", margin: '2vh', fontWeight: 'bold'}}> Frequently Asked Questions </h2>
+                    <div>
+                        asdas
+                    </div>
+                </div>
+
+                {/* Contact US */}
+                <div style = {{marginBottom: '5vh'}}>
+                    <h2 style = {{fontSize: "1.5rem", margin: '2vh', fontWeight: 'bold'}}> Contact Us </h2>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <span>E-Mail:</span>
+                        <TextField variant="outlined" style={{ marginLeft: '1rem', flex: 1 }} />
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <span>Message:</span>
+                        <TextField variant="outlined" style={{ marginLeft: '1rem', flex: 1, padding: '1rem' }} />
+                    </div>
+                </div>
             </main>
         </div>
     );
