@@ -1,7 +1,11 @@
 import React from 'react';
 import Link from "next/link";
 import '../src/app/globals.css';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 const help = () => {
     return (
@@ -12,12 +16,12 @@ const help = () => {
                 <div className="flex items-center justify-between mb-4">
 
                 <div className="flex items-center"> 
-                    <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div> 
+                    <AccountBalanceIcon className="w-8 h-8 text-white"/>
                 </div>
                 
                 <div className="flex items-center space-x-4">
-                    <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
-                    <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
+                    <SearchIcon className="w-8 h-8 text-white"/>
+                    <MenuIcon className="w-8 h-8 text-white"/>
                 </div>
                 </div>
 
@@ -43,10 +47,14 @@ const help = () => {
                 {/* Login */}
                 <div className="flex items-center justify-left mb-4">
                 <div className="flex items-left ml-4"> 
-                    <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div> 
+                    <div className="w-12 h-12 rounded-full" style = {{backgroundColor: '#00b1d2'}}>
+                        <LockOpenIcon className="w-10 h-10 ml-1 mt-1"/>
+                    </div> 
                 </div>
                 <div className="flex text-center items-center text-white font-bold ml-2">
-                    <a href="#">Account</a>
+                    <Link href="/account">
+                        Account
+                    </Link>
                 </div>
                 </div>
             </nav>
@@ -54,28 +62,52 @@ const help = () => {
             {/* Dashboard */}
             <main className="flex-1 p-8">
                 {/* Title */}
-                <div style = {{fontSize: "2rem", fontWeight: "bold", textAlign: "center"}}>
-                    <h1>Help And Support</h1>
+                <div style={{ 
+                    fontSize: '38px', 
+                    fontWeight: '950', 
+                    textAlign: 'center', 
+                    background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, 
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    color: 'transparent'
+                }}>
+                    Help And Support
                 </div>
 
                 {/* FAQs */}
                 <div style = {{marginBottom: '5vh'}}>
                     <h2 style = {{fontSize: "1.5rem", margin: '2vh', fontWeight: 'bold'}}> Frequently Asked Questions </h2>
-                    <div>
-                        asdas
+                    <div style = {{marginBottom: '5vh', backgroundColor: 'white', padding: '2vh', borderRadius: '10px', fontSize:'1.2em'}}>
+                        <ol>
+                            <li>Question 1</li>
+                            <li>Question 2</li>
+                        </ol>
                     </div>
                 </div>
 
                 {/* Contact US */}
                 <div style = {{marginBottom: '5vh'}}>
                     <h2 style = {{fontSize: "1.5rem", margin: '2vh', fontWeight: 'bold'}}> Contact Us </h2>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span>E-Mail:</span>
-                        <TextField variant="outlined" style={{ marginLeft: '1rem', flex: 1 }} />
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <span>Message:</span>
-                        <TextField variant="outlined" style={{ marginLeft: '1rem', flex: 1, padding: '1rem' }} />
+                        <div style = {{marginBottom: '5vh', backgroundColor: 'white', padding: '2vh', borderRadius: '10px', fontSize:'1.2em'}}>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <span>E-Mail:</span>
+                            <TextField variant="outlined" style={{ marginLeft: '1.4rem', flex: 1, padding: '1rem' }} />
+                        </div>
+                        <div style={{ display: 'flex' }}>
+                            <span style = {{marginTop:'2rem'}}>Message:</span>
+                            <TextField 
+                                variant="outlined" 
+                                style={{ flex: 1, padding: '1rem' }} 
+                                multiline
+                                rows = {10}
+                                InputProps = {{ style: {height:'auto', paddingTop: 0}}}
+                            />
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '4vh' }}>
+                            <Button variant="contained" style={{ fontSize:'1rem', width: '20vw', background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, borderRadius: '20px' }}>        
+                                Send Feedback
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </main>

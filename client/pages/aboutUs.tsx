@@ -1,6 +1,10 @@
 import React from 'react';
 import Link from "next/link";
 import '../src/app/globals.css';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 const aboutUs = () => {
     const dummyImg = 'https://media.istockphoto.com/id/464988959/photo/mallard-duck-on-white-background.jpg?s=612x612&w=0&k=20&c=S1jcDuyXuoCVUaTobTrZ5f6SlscukkyheqKDHAeflW8='
@@ -18,12 +22,12 @@ const aboutUs = () => {
                 <div className="flex items-center justify-between mb-4">
 
                 <div className="flex items-center"> 
-                    <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div> 
+                    <AccountBalanceIcon className="w-8 h-8 text-white"/>
                 </div>
                 
                 <div className="flex items-center space-x-4">
-                    <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
-                    <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
+                    <SearchIcon className="w-8 h-8 text-white"/>
+                    <MenuIcon className="w-8 h-8 text-white"/>
                 </div>
                 </div>
 
@@ -49,10 +53,14 @@ const aboutUs = () => {
                 {/* Login */}
                 <div className="flex items-center justify-left mb-4">
                 <div className="flex items-left ml-4"> 
-                    <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div> 
+                    <div className="w-12 h-12 rounded-full" style = {{backgroundColor: '#00b1d2'}}>
+                        <LockOpenIcon className="w-10 h-10 ml-1 mt-1"/>
+                    </div> 
                 </div>
                 <div className="flex text-center items-center text-white font-bold ml-2">
-                    <a href="#">Account</a>
+                    <Link href="/account">
+                        Account
+                    </Link>
                 </div>
                 </div>
             </nav>
@@ -60,16 +68,25 @@ const aboutUs = () => {
             {/* Dashboard */}
             <main className="flex-1 p-8">
                 {/* Title */}
-                <div style = {{fontSize: "2rem", fontWeight: "bold", textAlign: "center"}}>
-                    <h1>About Us</h1>
+                <div style={{ 
+                    fontSize: '38px', 
+                    fontWeight: '950', 
+                    textAlign: 'center', 
+                    background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, 
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    color: 'transparent'
+                }}>
+                    About Us
                 </div>
                 
                 {/* Mission Statement */}
-                <div style = {{marginBottom: '5vh'}}>
-                    <h2 style = {{fontSize: "1.5rem", margin: '2vh', fontWeight: 'bold'}}> Mission Statement </h2>
-                    <div>
-                        Our mission is to help you manage your finances more effectively and efficiently.
-                    </div>
+                <h2 style = {{fontSize: "1.5rem", margin: '2vh', fontWeight: 'bold'}}> Mission Statement </h2>
+                <div style = {{marginBottom: '5vh', backgroundColor: 'white', padding: '2vh', borderRadius: '10px', fontSize:'1.2em'}}>
+                    Our mission is to help you manage your finances more effectively and efficiently. 
+                    Keep track of weekly and monthly expenses using Capital Crest's expense tracking tool. 
+                    We strive to educate our users on the importance of budgeting, saving, and investing wisely, equipping them with the knowledge and tools they need to achieve their long-term financial goals.
+                    Create a budget today!
                 </div>
 
                 {/* Our Team */}

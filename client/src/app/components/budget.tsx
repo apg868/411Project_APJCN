@@ -29,7 +29,7 @@ const Budget: React.FC<BudgetProps> = ({ budgetData, summaryData }) => {
         <BudgetBreakdown budgetData={budgetData}/>
       </div>
       {/* Budget Summary */}
-      <div className="flex-1" style={{ height: "44vh", width: "40%" }}>
+      <div className="flex-1" style={{ height: "43vh", width: "40%" }}>
         <div className="bg-white rounded-lg shadow-md p-4 h-full">
           <b><h2 style ={{marginBottom: "2vh"}}>Budget Summary</h2></b>
           {/* pie chart component */}

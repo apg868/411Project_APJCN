@@ -14,7 +14,7 @@ interface BudgetProps {
 // Budget Breakdown Component
 const budgetBreakdown: React.FC<BudgetProps> = ({budgetData}) => {
   return (
-    <div className="flex-1" style={{ height: "50vh" }}>
+    <div className="flex-1" style={{ height: "43vh" }}>
         <div className="bg-white rounded-lg shadow-md p-4 h-full">
           <b><h2 style={{marginBottom: "2vh"}}>Budget Breakdown</h2></b>
           {/* List of budget items */}
