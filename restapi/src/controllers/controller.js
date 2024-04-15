@@ -1,6 +1,6 @@
 // load pool from database file
 const pool = require('../../db');
-const queries = require('./queries');
+const queries = require('../queries/queries');
 
 // where we store query logistics ("business logic") related each route
 

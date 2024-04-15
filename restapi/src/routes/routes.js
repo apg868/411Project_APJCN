@@ -2,7 +2,7 @@
 // we use Express's router
 const { Router } = require('express');
 
-const controller = require('./controller');
+const controller = require('./../controllers/controller');
 
 // define an Express router
 const router = Router();
