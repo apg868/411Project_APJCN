@@ -1,23 +1,41 @@
-// require is a NodeJS built-in function to load external modules
-const express = require('express'); 
-// load the router from students/routes.js
-const studentRoutes = require('./src/student/routes.js')
+// Require built-in or third-party modules
+require('dotenv').config(); // Ensures that environment variables are loaded
+const express = require('express');
+const cors = require('cors');
+const { createLinkTokenHandler} = require('./src/controllers/plaidController.js')
+const plaidController = require('./src/controllers/plaidController');
 
-// create express application and assign to app
+
+// Require routers from your routes directory
+const studentRoutes = require('./src/routes/routes.js');
+const plaidRouteList = require('./src/routes/plaidRoutes.js'); // Ensure this router is set up to use the Plaid client from a separate config
+
+// Create the Express application
 const app = express();
-// assign local port number
-const port = 3000;
+const port = process.env.PORT || 3001; // Allows for an environment variable to set port, with a default of 3001
 
-// allows us to post and grab json objects from endpoitns
+// Middleware to handle CORS
+app.use(cors());
+
+// Middleware to parse JSON bodies
 app.use(express.json());
 
-// define api endpoint at localhost:3000
+// Test route to confirm server is running
 app.get("/", (req, res) => {
-  // upon completion, send "Hello, James." string
-  res.send("Hello, James.");
+    res.send("Hello, James.");
 });
 
-// make use of string /api/v1/students and acquired router (route at the string as prefix)
+// Student-related routes
 app.use('/api/v1/students', studentRoutes);
 
-app.listen(port, () => console.log(`app listening on port ${port}`));
+// Plaid-related routes (make sure plaidRouteList correctly imports the Plaid client)
+app.use('/api/v1/plaidapi', plaidRouteList);
+
+
+
+// app.post('/test-create-link-token', createLinkTokenHandler);   TEST LINE
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});
