@@ -3,6 +3,8 @@ require('dotenv').config(); // Ensures that environment variables are loaded
 const express = require('express');
 const cors = require('cors');
 const { createLinkTokenHandler} = require('./src/controllers/plaidController.js')
+const plaidController = require('./src/controllers/plaidController');
+
 
 // Require routers from your routes directory
 const studentRoutes = require('./src/routes/routes.js');
@@ -28,6 +30,8 @@ app.use('/api/v1/students', studentRoutes);
 
 // Plaid-related routes (make sure plaidRouteList correctly imports the Plaid client)
 app.use('/api/v1/plaidapi', plaidRouteList);
+
+
 
 // app.post('/test-create-link-token', createLinkTokenHandler);   TEST LINE
 

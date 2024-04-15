@@ -32,6 +32,26 @@ exports.createLinkTokenHandler = async function(request, response) {
 
 
 
+exports.exchangePublicToken = async function(request, response) {
+  const publicToken = request.body.public_token;
+  console.log("Received public token:", publicToken); // Log to verify input
+  try {
+    const exchangeResponse = await client.itemPublicTokenExchange({
+      public_token: publicToken,
+    });
+    const accessToken = exchangeResponse.data.access_token;
+    const itemID = exchangeResponse.data.item_id;
+    console.log(accessToken, "is your 6h+ access token to be stored in the DB!");
+    response.json({ accessToken, itemID });
+  } catch (error) {
+    console.error("Error during public token exchange:", error.response ? error.response.data : error);
+    response.status(500).json({ error: error.message || 'Unknown error during token exchange' });
+  }
+  
+};
+
+
+
 // exports.createLinkTokenHandler = async function(request, response) {
 //   // Simulated response to mimic a successful creation of a link token
 //   const simulatedResponse = {
