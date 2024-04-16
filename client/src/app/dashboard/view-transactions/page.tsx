@@ -62,10 +62,14 @@ export default function Transaction() {
     // Example of newTransaction: { category: "Groceries", amount: 50, quarter: "Q1" }
 
     // Update the bar chart data
-    setBarChartData(currentData =>
+    setBarChartData((currentData) =>
       currentData.map((entry) => {
         if (entry.name === newTransaction.quarter) {
-          return { ...entry, [newTransaction.category]: entry[newTransaction.category] + newTransaction.amount };
+          return {
+            ...entry,
+            [newTransaction.category]:
+              entry[newTransaction.category] + newTransaction.amount,
+          };
         }
         return entry;
       })
@@ -73,7 +77,7 @@ export default function Transaction() {
 
     // Optionally, update itemsData as well if needed
     // This is just an illustrative snippet. You might need to adjust it based on how you handle transactions.
-    setItemsData(currentItems =>
+    setItemsData((currentItems) =>
       currentItems.map((item) => {
         if (item.category === newTransaction.category) {
           return { ...item, spent: item.spent + newTransaction.amount };
@@ -133,7 +137,9 @@ export default function Transaction() {
                 <span style={{ color: COLORS[item.category] }}>
                   {item.category}
                 </span>
-                <span>{`$${item.spent.toFixed(3)} of $${item.budget.toFixed(3)}`}</span>
+                <span>{`$${item.spent.toFixed(3)} of $${item.budget.toFixed(
+                  3
+                )}`}</span>
               </div>
               <LinearProgress
                 variant="determinate"
@@ -168,25 +174,6 @@ export default function Transaction() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from "react";
 // import ToggleButton from "@mui/material/ToggleButton";
@@ -332,4 +319,3 @@ export default function Transaction() {
 //     </div>
 //   );
 // }
-
