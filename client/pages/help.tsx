@@ -1,63 +1,40 @@
 import React from 'react';
-import Link from "next/link";
 import '../src/app/globals.css';
 import { Button, TextField } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { useState } from 'react';
+import Navbar from '@/app/components/navbar';
 
 const help = () => {
+    const questions = [
+        'How do I set a budget?', 
+        'How do I record my expenses?', 
+        'How do I categorize my expenditure?', 
+        'Where can I find a more detailed report of my transactions?', 
+        'What does linking my account mean?', 
+        'How do I link my account?'
+    ];
+    const answers = [
+        'You can go to the "Add Budget" tab in the Navbar on the left and then view or set your periodic budget', 
+        'Our platform links to your bank account directly so you do not need to enter your expenses manually. Any transaction you make will be synced on our system as your bank account auto-updates.', 
+        'You will not have to categorize the expenditures yourself since our platform makes use of Plaid API, which will do the categorizing for you.',
+        'You can either view the report of your transactions on the "View Transaction History" tab in the Navbar on the left or you can view the report of your transactions on the main Dashboard, which will include various reports of those data.',
+        'Linking your account will allow us to access your transaction data from your bank so that we can provide a more personalized experience for you.',
+        'To link your account, you can ...'
+    ];
+    const [faq, setExpandFAQ] = useState('');
+
+    const handleExpandFAQ = (question: string) => {
+        setExpandFAQ(faq === question ? '' : question);
+    }
+
     return (
         <div className="flex min-h-screen">
             {/* Navbar */}
-            <nav className="bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
-                {/* Icons */}
-                <div className="flex items-center justify-between mb-4">
-
-                <div className="flex items-center"> 
-                    <AccountBalanceIcon className="w-8 h-8 text-white"/>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                    <SearchIcon className="w-8 h-8 text-white"/>
-                    <MenuIcon className="w-8 h-8 text-white"/>
-                </div>
-                </div>
-
-                {/* Tabs */}
-            <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
-                <Link href="./" className="text-center">
-                    Dashboard
-                </Link>
-                <Link href="/aboutUs" className="text-center">
-                    About Us
-                </Link>
-                <Link href="./" className="text-center">
-                    View Transaction History
-                </Link>
-                <Link href="/viewSetBudget" className="text-center">
-                    View Budget
-                </Link>
-                <Link href="/help" className="text-center">
-                    Help and Support
-                </Link>
-                </div>
-
-                {/* Login */}
-                <div className="flex items-center justify-left mb-4">
-                <div className="flex items-left ml-4"> 
-                    <div className="w-12 h-12 rounded-full" style = {{backgroundColor: '#00b1d2'}}>
-                        <LockOpenIcon className="w-10 h-10 ml-1 mt-1"/>
-                    </div> 
-                </div>
-                <div className="flex text-center items-center text-white font-bold ml-2">
-                    <Link href="/account">
-                        Account
-                    </Link>
-                </div>
-                </div>
-            </nav>
+            <div className="bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
+                <Navbar/>
+            </div>
 
             {/* Dashboard */}
             <main className="flex-1 p-8">
@@ -78,10 +55,19 @@ const help = () => {
                 <div style = {{marginBottom: '5vh'}}>
                     <h2 style = {{fontSize: "1.5rem", margin: '2vh', fontWeight: 'bold'}}> Frequently Asked Questions </h2>
                     <div style = {{marginBottom: '5vh', backgroundColor: 'white', padding: '2vh', borderRadius: '10px', fontSize:'1.2em'}}>
-                        <ol>
-                            <li>Question 1</li>
-                            <li>Question 2</li>
-                        </ol>
+                        {questions.map((question, index)=>(
+                            <div>
+                                <div key = {index} style = {{marginBottom: '2vh', display: "flex", justifyContent: "space-between", fontWeight: 'bold'}} onClick = {() => handleExpandFAQ(question)}>
+                                    {question}
+                                    {faq === question ? <KeyboardArrowUpIcon style={{ cursor: "pointer" }}/> : <KeyboardArrowDownIcon style={{ cursor: "pointer" }}/>}
+                                </div>
+                            {faq === question && (
+                                <div style = {{marginBottom: '2vh', display: "flex", justifyContent: "space-between"}}>
+                                    {answers[index]}
+                                </div>
+                            )}
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -99,7 +85,7 @@ const help = () => {
                                 variant="outlined" 
                                 style={{ flex: 1, padding: '1rem' }} 
                                 multiline
-                                rows = {10}
+                                rows = {6}
                                 InputProps = {{ style: {height:'auto', paddingTop: 0}}}
                             />
                         </div>
