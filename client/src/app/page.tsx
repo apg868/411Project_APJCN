@@ -63,6 +63,11 @@ export default function Home() {
           <Link href="/" className="text-center">
             Help and Support
           </Link>
+
+          <Link href="/dashboard2/homePage" className="text-center">
+            Home Page
+          </Link>
+
         </div>
 
         {/* Login */}
