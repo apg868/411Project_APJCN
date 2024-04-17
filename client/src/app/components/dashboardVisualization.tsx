@@ -12,7 +12,7 @@ interface chartData {
 // Dashboard Visualization Component
 const dashboardVisualization: React.FC<chartData> = ({labels, data}) => {
     return (
-        <div className="mb-8" style={{ height: "40vh" }}>
+        <div className="mb-6" style={{ height: "42vh" }}>
           <div className="bg-white rounded-lg shadow-md p-4 h-full">
             {/* Replace with actual chart component */}
             <div>
@@ -35,8 +35,8 @@ const dashboardVisualization: React.FC<chartData> = ({labels, data}) => {
                 <BarChart
                   xAxis={[{ scaleType: 'band', data: labels }]}
                   series={[{ data: data }]}
-                  width={1200}
-                  height={310}
+                  width={1050}
+                  height={250}
                 />
               </div>
             </div>

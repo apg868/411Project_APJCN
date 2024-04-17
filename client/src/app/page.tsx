@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen">
       {/* Navbar */}
-      <div className="bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
+      <div className="relative bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
         <Navbar/>
       </div>
       
