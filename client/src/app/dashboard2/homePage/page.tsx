@@ -38,7 +38,14 @@ export default function Homepage() {
             <a href="#">Account</a>
           </div>
         </div>
+
+        {/* Login/Signup Links */}
+        {/* <div className="flex flex-col items-center justify-between mb-4 space-y-2">
+          <Link href="/login" className="text-white font-bold">Login</Link>
+          <Link href="/signup" className="text-white font-bold">Sign Up</Link>
+        </div> */}
       </nav>
+      
 
       {/* Main content area with stylized hero text and box with money icon */}
       <div className="flex-grow bg-white relative">
@@ -106,6 +113,11 @@ export default function Homepage() {
             <p className="text-sm">Save more by avoiding overspending.</p>
             <p className="text-sm">Gain financial control and peace.</p>
           </div>
+        </div>
+        {/* Login and Sign Up links moved from the sidebar */}
+        <div className="text-center mt-10">
+          <Link href="/login" className="text-blue-600 font-bold mx-2">Login</Link>
+          <Link href="/signup" className="text-blue-600 font-bold mx-2">Sign Up</Link>
         </div>
       </div>
     </div>
