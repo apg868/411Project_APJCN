@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import Image from 'next/image'; // Import the Image component
+import Image from "next/image"; // Import the Image component
 
 export default function Homepage() {
   return (
@@ -21,12 +21,24 @@ export default function Homepage() {
 
         {/* Tabs */}
         <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
-          <Link href="/" className="text-center">Dashboard</Link>
-          <Link href="/" className="text-center">About Us</Link>
-          <Link href="/dashboard/view-transactions" className="text-center">View Transaction History</Link>
-          <Link href="/viewSetBudget" className="text-center">View Budget</Link>
-          <Link href="/" className="text-center">Help and Support</Link>
-          <Link href="/dashboard2/homePage" className="text-center">Home Page</Link>
+          <Link href="/" className="text-center">
+            Dashboard
+          </Link>
+          <Link href="/" className="text-center">
+            About Us
+          </Link>
+          <Link href="/dashboard/view-transactions" className="text-center">
+            View Transaction History
+          </Link>
+          <Link href="/viewSetBudget" className="text-center">
+            View Budget
+          </Link>
+          <Link href="/" className="text-center">
+            Help and Support
+          </Link>
+          <Link href="/dashboard2/homePage" className="text-center">
+            Home Page
+          </Link>
         </div>
 
         {/* Login */}
@@ -45,7 +57,6 @@ export default function Homepage() {
           <Link href="/signup" className="text-white font-bold">Sign Up</Link>
         </div> */}
       </nav>
-      
 
       {/* Main content area with stylized hero text and box with money icon */}
       <div className="flex-grow bg-white relative">
@@ -54,57 +65,76 @@ export default function Homepage() {
           <h1>
             {/* ... existing hero text ... */}
             <span
-                style={{ color: "#0077CC", fontWeight: "bold", fontSize: "3rem", center: 50}}
-              >
-                Save
-              </span>{" "}
-              <br />
-              <span
-                style={{ color: "#50B83C", fontWeight: "bold", fontSize: "3rem" }}
-              >
-                Money,
-              </span>
-
-              <br />
-              <span
-                style={{ color: "#F49342", fontWeight: "bold", fontSize: "3rem" }}
-              >
-                Without
-              </span>{" "}
-              <br />
-              <span
-                style={{ color: "#9C6ADE", fontWeight: "bold", fontSize: "3rem" }}
-              >
-                Thinking
-              </span>
-              <br />
-              <span
-                style={{ color: "#F649A7", fontWeight: "bold", fontSize: "3rem" }}
-              >
-                About
-              </span>{" "}
-              <br />
-      
-              <span
-                style={{ color: "#FFAB47", fontWeight: "bold", fontSize: "3rem" }}
-              >
-                It.
-              </span>
+              style={{
+                color: "#0077CC",
+                fontWeight: "bold",
+                fontSize: "3rem",
+                center: 50,
+              }}
+            >
+              Save
+            </span>{" "}
+            <br />
+            <span
+              style={{ color: "#50B83C", fontWeight: "bold", fontSize: "3rem" }}
+            >
+              Money,
+            </span>
+            <br />
+            <span
+              style={{ color: "#F49342", fontWeight: "bold", fontSize: "3rem" }}
+            >
+              Without
+            </span>{" "}
+            <br />
+            <span
+              style={{ color: "#9C6ADE", fontWeight: "bold", fontSize: "3rem" }}
+            >
+              Thinking
+            </span>
+            <br />
+            <span
+              style={{ color: "#F649A7", fontWeight: "bold", fontSize: "3rem" }}
+            >
+              About
+            </span>{" "}
+            <br />
+            <span
+              style={{ color: "#FFAB47", fontWeight: "bold", fontSize: "3rem" }}
+            >
+              It.
+            </span>
           </h1>
-
 
           {/* Positioned image */}
           <div style={{ position: "absolute", bottom: 20, right: 70 }}>
-            <img src="/imageExpense/66869.jpg" width="400" height="400" alt="Manage your Money" />
+            <img
+              src="/imageExpense/66869.jpg"
+              width="400"
+              height="400"
+              alt="Manage your Money"
+            />
           </div>
         </div>
 
         {/* New Box with Money Icon and Text */}
-        <div style={{ position: "absolute", bottom: 100, left: 'calc(50% - 470px)' }} className="p-4 bg-white shadow-lg rounded-md">
+        <div
+          style={{
+            position: "absolute",
+            bottom: 100,
+            left: "calc(50% - 470px)",
+          }}
+          className="p-4 bg-white shadow-lg rounded-md"
+        >
           <div className="flex flex-col items-start">
             {/* Money Icon */}
             <div className="mb-4">
-              <Image src="/images.png" alt="Money Icon" width={64} height={64} />
+              <Image
+                src="/images.png"
+                alt="Money Icon"
+                width={64}
+                height={64}
+              />
             </div>
             {/* Explanation Text */}
             <p className="text-lg font-semibold">Track Spending</p>
@@ -115,32 +145,22 @@ export default function Homepage() {
           </div>
         </div>
         {/* Login and Sign Up links moved from the sidebar */}
-        <div className="text-center mt-10">
-          <Link href="/login" className="text-blue-600 font-bold mx-2">Login</Link>
-          <Link href="/signup" className="text-blue-600 font-bold mx-2">Sign Up</Link>
+
+        <div className="flex justify-center mt-10 space-x-4">
+          <Link
+            href="/page.tsx"
+            className="p-4 bg-blue-600 text-white rounded font-bold"
+          >
+            Login
+          </Link>
+          <Link
+            href="/page.tsx"
+            className="p-4 bg-blue-600 text-white rounded font-bold"
+          >
+            Sign Up
+          </Link>
         </div>
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
