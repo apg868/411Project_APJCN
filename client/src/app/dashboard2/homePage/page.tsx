@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image"; // Import the Image component
 
+
 export default function Homepage() {
   return (
     <div className="flex min-h-screen">
@@ -148,13 +149,13 @@ export default function Homepage() {
 
         <div className="flex justify-center mt-10 space-x-4">
           <Link
-            href="/page.tsx"
+            href="../login"
             className="p-4 bg-blue-600 text-white rounded font-bold"
           >
             Login
           </Link>
           <Link
-            href="/page.tsx"
+            href="../signup"
             className="p-4 bg-blue-600 text-white rounded font-bold"
           >
             Sign Up
