@@ -10,6 +10,7 @@ interface BudgetData {
 }
 
 interface SummaryData {
+  budget: number;
   spentSoFar: number;
   leftForBudget: number;
 }
@@ -24,12 +25,13 @@ const Budget: React.FC<BudgetProps> = ({ budgetData, summaryData }) => {
   return (
     <div className="flex space-x-8">
       {/* Budget Breakdown */}
-      <BudgetBreakdown budgetData={budgetData}/>
-
+      <div style = {{width: "50%"}}>
+        <BudgetBreakdown budgetData={budgetData}/>
+      </div>
       {/* Budget Summary */}
-      <div className="flex-1" style={{ height: "40vh", width: "40%" }}>
+      <div className="flex-1" style={{ height: "41vh", width: "40%" }}>
         <div className="bg-white rounded-lg shadow-md p-4 h-full">
-          <b><h2 style ={{marginBottom: "2vh"}}>Budget Summary</h2></b>
+          <b><h2 style ={{marginBottom: "1vh"}}>Budget Summary</h2></b>
           {/* pie chart component */}
           <div>
             {/* Render your pie chart with dummy data */}
@@ -45,13 +47,14 @@ const Budget: React.FC<BudgetProps> = ({ budgetData, summaryData }) => {
                 },
               ]}
               width={500}
-              height={200}
+              height={180}
             />
             
           </div>
           <div style={{display: "flex", flexDirection: "column"}}>
-            <span style ={{marginTop: "2vh"}}><b>Spent So Far:</b> {summaryData.spentSoFar}</span>
-            <span style ={{marginTop: "2vh"}}><b>Left for Budget:</b> {summaryData.leftForBudget}</span>
+            <span style ={{marginTop: "1vh"}}><b>Budget:</b> {summaryData.budget}</span>
+            <span style ={{marginTop: "1vh"}}><b>Spent So Far:</b> {summaryData.spentSoFar}</span>
+            <span style ={{marginTop: "1vh"}}><b>Left for Budget:</b> {summaryData.leftForBudget}</span>
           </div>
         </div>
       </div>
