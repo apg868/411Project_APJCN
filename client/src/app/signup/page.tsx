@@ -1,220 +1,147 @@
-"use client";
+import React from 'react';
 import Link from "next/link";
-import React, { useState } from "react";
-import Image from "next/image";
+import '../globals.css';
+import { Button, Divider, TextField, Typography } from '@mui/material';
+import { EmailOutlined, GitHub, Google, LockOutlined } from '@mui/icons-material';
 
-const SignupPage: React.FC = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const signUp = () => {
+    return(
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', width: '100vw', backgroundImage: 'url("/imageExpense/image2.jpeg")', paddingLeft: '0 !important' }}>
+            <div style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                textAlign: 'left', 
+                height: '100vh', 
+                width: '44vw', 
+                background: 'linear-gradient(to top, #6574cd, #7886d7)',
+                borderRadius: '0px 70px 0px 0px',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+                <div style={{ 
+                    fontWeight: '900', 
+                    textAlign: 'center', 
+                    background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, 
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    color: 'transparent'
+                }}>
+                    <div style = {{fontSize: '46px'}}>WELCOME</div>
+                    <div style = {{fontSize: '26px'}}>to</div>
+                    <div style = {{fontSize: '32px'}}>CAPITAL CREST</div>
+                </div>
 
-  const handleSignup = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Signing up with", username, email, password);
-  };
+                <div>
+                    <img src = "https://cdn.glitch.global/d1543bd7-bc7d-4cd5-bfe2-2119128d273a/sign-up-8694031-6983270.png?v=1713207994194" style = {{width:'80%', margin: '5vh'}}></img>
+                </div>
 
-  return (
-    <div 
-      className="flex min-h-screen"
-      style={{
-        backgroundImage: `url('/imageExpense/image5.webp')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-    >
+                <Link href="/account">
+                    <Button variant="contained" style={{ fontSize:'22px', width: '14vw', background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, borderRadius: '20px' }}>        
+                        Back
+                    </Button>
+                </Link>
+            </div>
 
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', width: '70vw', justifyContent: 'center'}}>
+                {/* Main Content */}
+                <div style={{ padding: 4, width: '50%', borderRadius: '40px', padding: '20px', backgroundColor: '#e5e7eb', paddingTop: '50px', paddingBottom: '50px' }}>
+                    <Typography variant="h5" component="h1" gutterBottom sx={{textAlign: 'left', color: '#7886d7', fontSize: '32px', fontWeight: '700'}}>
+                        Sign Up with Capital Crest
+                    </Typography>
 
-    <nav className="bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
-        {/* Icons */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center">
-            <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div>
-          </div>
+                    <Typography variant="subtitle1" gutterBottom sx={{textAlign: 'left', color: '#525252', fontSize: '16px', fontWeight: '400'}}>
+                        Create your account credentials today!
+                    </Typography>
 
-          <div className="flex items-center space-x-4">
-            <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
-            <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
-          </div>
+                    <form>
+                        {/* Email */}
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            name="email"
+                            autoComplete="email"
+                            placeholder='Email'
+                            autoFocus
+                            InputProps={{
+                                style: {
+                                    borderRadius: '50px',
+                                    border: '1px solid #7886d7',
+                                    background: '#F2FDFF'
+                                },
+                                startAdornment: (
+                                    <EmailOutlined sx={{ marginRight: '8px' }} />
+                                ),
+                            }}
+                        />
+
+                        {/* Passcode */}
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            placeholder='Password'
+                            InputProps={{
+                                style: {
+                                    borderRadius: '50px',
+                                    border: '1px solid #7886d7',
+                                    background: '#F2FDFF'
+                                },
+                                startAdornment: (
+                                    <LockOutlined sx={{ marginRight: '8px' }} />
+                                ),
+                            }}
+                        />
+
+                        <Button variant="contained" style={{ width: '100%', backgroundColor: 'green', borderRadius: '20px' }}>        
+                            SIGN UP
+                        </Button>
+
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <div>
+                                <Link href = "/account">
+                                    <Button size="small" sx={{color: '#7886d7'}}>
+                                        Already have an account? Log In
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div style = {{ display: 'flex', justifyContent: 'center' }}>
+                            <div style = {{ fontSize: '10px', width: "70%" }}>
+                                By continuing, you agree to the <b>Terms of Services</b>, <b>Privacy Policy</b>, and <b>Community Standard of UniMate</b>.
+                            </div>
+                        </div>
+
+                        <Divider sx={{ my: 3, color: '#777' }}>Continue with Others</Divider>
+
+                        <div style = {{display: 'flex', justifyContent: 'space-between'}}>
+                            <div>
+                                <Button variant="outlined" startIcon={<Google />}  
+                                    sx={{borderRadius: '50px', border: '1px solid #D9D9D9', fontSize: '14px', fontWeight: '400', color: '#777'}}
+                                >
+                                    Continue with Google
+                                </Button>
+                            </div>
+                            <div>
+                                <Button variant="outlined" startIcon={<GitHub />}  
+                                    sx={{borderRadius: '50px', border: '1px solid #D9D9D9', fontSize: '14px', fontWeight: '400', color: '#777'}}
+                                >
+                                    Continue with GitHub
+                                </Button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
+    );
+}
 
-        {/* Tabs */}
-        <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
-          <Link href="/" className="text-center">
-            Dashboard
-          </Link>
-          <Link href="/" className="text-center">
-            About Us
-          </Link>
-          <Link href="/dashboard/view-transactions" className="text-center">
-            View Transaction History
-          </Link>
-          <Link href="/viewSetBudget" className="text-center">
-            View Budget
-          </Link>
-          <Link href="/" className="text-center">
-            Help and Support
-          </Link>
-          <Link href="/dashboard2/homePage" className="text-center">
-            Home Page
-          </Link>
-        </div>
-
-        {/* Login */}
-        <div className="flex items-center justify-left mb-4">
-          <div className="flex items-left ml-4">
-            <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div>
-          </div>
-          <div className="flex text-center items-center text-white font-bold ml-2">
-            <a href="#">Account</a>
-          </div>
-        </div>
-      </nav>
-      <div className="flex-grow bg-white/80 p-10 backdrop-blur-sm">
-        <h1 className="text-center font-bold text-xl mb-5">Sign Up</h1>
-        <form onSubmit={handleSignup} className="space-y-6">
-          <div>
-            <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900">Username:</label>
-            <input
-              id="username"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Email:</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Password:</label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              required
-            />
-          </div>
-          <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sign Up</button>
-        </form>
-        <p className="mt-4 text-center">
-          Already have an account? <Link href="../login">Log in</Link>
-        </p>
-      </div>
-    </div>
-  );
-};
-
-export default SignupPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// "use client";
-// import Link from "next/link";
-// import React, { useState } from "react";
-// import Image from "next/image";
-
-// const SignupPage: React.FC = () => {
-//   const [username, setUsername] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const handleSignup = (event: React.FormEvent<HTMLFormElement>) => {
-//     event.preventDefault();
-//     console.log("Signing up with", username, email, password);
-//   };
-
-//   return (
-//     <div className="flex min-h-screen">
-
-      
-//       <nav className="bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
-//         <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
-//           <Link href="/dashboard2/homePage">Home Page</Link>
-//         </div>
-//       </nav>
-//       <div className="flex-grow bg-white p-10">
-//         <h1 className="text-center font-bold text-xl mb-5">Sign Up</h1>
-//         <form onSubmit={handleSignup} className="space-y-6">
-//           <div>
-//             <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900">Username:</label>
-//             <input
-//               id="username"
-//               type="text"
-//               value={username}
-//               onChange={(e) => setUsername(e.target.value)}
-//               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-//               required
-//             />
-//           </div>
-//           <div>
-//             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Email:</label>
-//             <input
-//               id="email"
-//               type="email"
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-//               required
-//             />
-//           </div>
-//           <div>
-//             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Password:</label>
-//             <input
-//               id="password"
-//               type="password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-//               required
-//             />
-//           </div>
-//           <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sign Up</button>
-//         </form>
-//         <p className="mt-4 text-center">
-//           Already have an account? <Link href="../login">Log in</Link>
-//         </p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SignupPage;
-
-
-
-
-
-
-
-
-
-
-
-
+export default signUp;

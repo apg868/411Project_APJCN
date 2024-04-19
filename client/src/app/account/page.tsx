@@ -6,32 +6,37 @@ import { EmailOutlined, LockOutlined, Google, GitHub } from '@mui/icons-material
 
 const account = () => {
     return(
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', width: '100vw', backgroundColor: '#e5e7eb', paddingLeft: '0 !important' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', width: '100vw', backgroundImage: 'url("/imageExpense/image2.jpeg")', paddingLeft: '0 !important' }}>
             <div style={{ 
                 display: 'flex', 
                 flexDirection: 'column', 
                 textAlign: 'left', 
                 height: '100vh', 
-                width: '50vw', 
+                width: '44vw', 
                 background: 'linear-gradient(to top, #6574cd, #7886d7)',
                 borderRadius: '0px 70px 0px 0px',
                 alignItems: 'center',
                 justifyContent: 'center'
             }}>
                 <div style={{ 
-                    fontSize: '40px', 
-                    fontWeight: '1000', 
+                    fontWeight: '900', 
                     textAlign: 'center', 
                     background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, 
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    color: 'transparent'
+                    color: 'transparent',
+                    display:'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                 }}>
-                    WELCOME TO CAPITAL CREST
+                    <div style = {{fontSize: '46px'}}>WELCOME</div>
+                    <div style = {{fontSize: '26px'}}>to</div>
+                    <div style = {{fontSize: '32px'}}>CAPITAL CREST</div>
                 </div>
 
                 <div>
-                    <img src = "https://cdn.glitch.global/d1543bd7-bc7d-4cd5-bfe2-2119128d273a/account-login-flat-illustration-vector.png?v=1713045332807" style = {{width:'80%', margin: '5vh'}}></img>
+                    <img src = "https://cdn.glitch.global/d1543bd7-bc7d-4cd5-bfe2-2119128d273a/account-login-flat-illustration-vector.png?v=1713045332807" style = {{width:'80%', marginLeft: '4vw'}}></img>
                 </div>
 
                 <Link href="/">
@@ -41,9 +46,9 @@ const account = () => {
                 </Link>
             </div>
 
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', width: '70vw', justifyContent: 'center'}}>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', width: '70vw', justifyContent: 'center' }}>
                 {/* Main Content */}
-                <div style={{ padding: 4, width: '50%' }}>
+                <div style={{ width: '50%', backgroundColor: '#e5e7eb', borderRadius: '40px', padding: '30px', paddingBottom:'30px', paddingTop: '50px' }}>
                     <Typography variant="h5" component="h1" gutterBottom sx={{textAlign: 'left', color: '#7886d7', fontSize: '32px', fontWeight: '700'}}>
                         Login
                     </Typography>
@@ -99,9 +104,11 @@ const account = () => {
 
                         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <div>
-                                <Button size="small" sx={{color: '#7886d7'}}>
-                                    Forgot Password?
-                                </Button>
+                                <Link href = "../forgotUsernamePassword"> 
+                                    <Button size="small" sx={{color: '#7886d7'}}>
+                                        Forgot Password?
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
 
@@ -125,16 +132,24 @@ const account = () => {
                         <div style = {{display: 'flex', justifyContent: 'space-between'}}>
                             <div>
                                 <Button variant="outlined" startIcon={<Google />}  
-                                    sx={{borderRadius: '50px', border: '1px solid #D9D9D9', fontSize: '14px', fontWeight: '400', color: '#777'}}
+                                    sx={{borderRadius: '50px', border: '1px solid #D9D9D9', fontSize: '12px', fontWeight: '400', color: '#777'}}
                                 >
                                     Continue with Google
                                 </Button>
+                            </div>
+                            <div>
                                 <Button variant="outlined" startIcon={<GitHub />}  
-                                    sx={{borderRadius: '50px', border: '1px solid #D9D9D9', fontSize: '14px', fontWeight: '400', color: '#777'}}
+                                    sx={{borderRadius: '50px', border: '1px solid #D9D9D9', fontSize: '12px', fontWeight: '400', color: '#777'}}
                                 >
                                     Continue with GitHub
                                 </Button>
                             </div>
+                        </div>
+
+                        <div style = {{display: 'flex', justifyContent: 'left', marginTop: '20px'}}>
+                            <Link href = "../needHelpSigning" style = {{color: '#7886d7'}}>
+                                Need help signing in?
+                            </Link>
                         </div>
                     </form>
 

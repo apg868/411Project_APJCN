@@ -1,19 +1,13 @@
-
-
-
-
-
-
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 const ForgotUsernamePasswordPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const router = useRouter();
 
-  const handleSubmit = async (event) => {
+
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setMessage("Processing...");
 
@@ -41,7 +35,7 @@ const ForgotUsernamePasswordPage = () => {
   return (
     <div
       className="flex items-center justify-center h-screen bg-no-repeat bg-cover"
-      style={{ backgroundImage: `url('/imageExpense/image4.jpeg')` }}
+      style={{ backgroundImage: `url('/imageExpense/image4.avif')` }}
     >
       <div className="bg-black opacity-40 inset-0 absolute"></div>
       <div className="z-10 max-w-lg w-full bg-white bg-opacity-75 rounded-lg p-8">
@@ -75,11 +69,11 @@ const ForgotUsernamePasswordPage = () => {
         {message && (
           <p className="mt-4 text-center text-sm text-gray-700">{message}</p>
         )}
-        <button
-          onClick={() => router.push("/login")} 
-        >
-          Back to Login
-        </button>
+        <div style = {{display: 'flex', justifyContent: 'left', marginTop: '20px'}}>
+          <Link href = "../account" style = {{color: '#7886d7', fontWeight: '400'}}>
+            Back to Login
+          </Link>
+        </div>
       </div>
     </div>
   );

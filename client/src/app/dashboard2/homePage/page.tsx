@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image"; 
+import Navbar from "@/app/components/navbar";
 
 export default function Homepage() {
   return (
@@ -9,53 +10,10 @@ export default function Homepage() {
       className="bg-cover bg-center h-screen" 
       style={{ backgroundImage: `url('/imageExpense/image5.webp')`}} 
     >
-       <div className="flex min-h-screen">
-      {/* Navbar/Sidebar */}
-      <nav className="bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
-        {/* Icons */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center">
-            <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
-            <div className="w-8 h-8 bg-gray-400 dark:bg-gray-600"></div>
-          </div>
-        </div>
-
-        {/* Tabs */}
-        <div className="flex flex-col space-y-12 flex-grow font-bold text-white">
-          <Link href="/" className="text-center">
-            Dashboard
-          </Link>
-          <Link href="/" className="text-center">
-            About Us
-          </Link>
-          <Link href="/dashboard/view-transactions" className="text-center">
-            View Transaction History
-          </Link>
-          <Link href="/viewSetBudget" className="text-center">
-            View Budget
-          </Link>
-          <Link href="/" className="text-center">
-            Help and Support
-          </Link>
-          <Link href="/dashboard2/homePage" className="text-center">
-            Home Page
-          </Link>
-        </div>
-
-        {/* Login */}
-        <div className="flex items-center justify-left mb-4">
-          <div className="flex items-left ml-4">
-            <div className="w-12 h-12 bg-gray-400 dark:bg-gray-600 rounded-full"></div>
-          </div>
-          <div className="flex text-center items-center text-white font-bold ml-2">
-            <a href="#">Account</a>
-          </div>
-        </div>
-      </nav>
+      <div className="flex min-h-screen">
+      <div className="relative bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
+        <Navbar/>
+      </div>
 
       {/* Main content area with stylized hero text and box with money icon */}
       <div className="flex-grow bg-white relative">
@@ -67,8 +25,7 @@ export default function Homepage() {
               style={{
                 color: "#0077CC",
                 fontWeight: "bold",
-                fontSize: "3rem",
-                center: 50,
+                fontSize: "3rem"
               }}
             >
               Save
@@ -130,7 +87,7 @@ export default function Homepage() {
 
             <div className="mb-4">
               <Image
-                src="/images.png"
+                src="/imageExpense/images.png"
                 alt="Money Icon"
                 width={64}
                 height={64}
@@ -148,14 +105,14 @@ export default function Homepage() {
 
         <div className="flex justify-center mt-10 space-x-4">
           <Link
-            href="../login"
+            href="../account"
             className="p-4 bg-blue-600 text-white rounded font-bold"
           >
             Login
           </Link>
 
           <Link
-            href="../signup"
+            href="../signUp"
             className="p-4 bg-blue-600 text-white rounded font-bold"
           >
             Sign Up

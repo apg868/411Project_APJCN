@@ -16,6 +16,8 @@ import {
   Legend,
 } from "recharts";
 
+// FIX THIS 
+
 export default function Transaction() {
   const [itemsData, setItemsData] = useState([
     { category: "Transportation", spent: 300, budget: 300 },
@@ -174,4 +176,3 @@ export default function Transaction() {
     </div>
   );
 }
-

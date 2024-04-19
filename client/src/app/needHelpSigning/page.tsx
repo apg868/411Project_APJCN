@@ -22,7 +22,9 @@ const HelpPage = () => {
               </button>
             </form>
             <p className="text-sm mt-4 text-center">
-              <a href="../login" className="font-medium text-blue-600 hover:text-blue-500">Back to Log In</a>
+              <Link href="../account" className="font-medium text-blue-600 hover:text-blue-500">
+                Back to Log In
+              </Link>
             </p>
           </div>
         </div>
