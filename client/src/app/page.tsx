@@ -11,7 +11,6 @@ export default function Home() {
       <div className="relative bg-gradient-to-t from-indigo-400 to-indigo-700 dark:bg-zinc-800/30 w-30 p-4 flex flex-col justify-between">
         <Navbar/>
       </div>
-      
 
       {/* Dashboard */}
       <main className="flex-1 p-8">
@@ -27,11 +26,13 @@ export default function Home() {
             WELCOME TO CAPITAL CREST
         </div>
         {/* Visualization */}
-        <DashboardVisualization labels={dummyChartData.labels} data={dummyChartData.data}/>
+        <DashboardVisualization
+          labels={dummyChartData.labels}
+          data={dummyChartData.data}
+        />
 
         {/* Category + Budget Summary Component */}
         <Budget budgetData={dummyBudgetData} summaryData={dummySummaryData} />
-         
       </main>
     </div>
   );
