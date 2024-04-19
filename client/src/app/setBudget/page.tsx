@@ -1,6 +1,7 @@
+'use client';
 import React, { useState } from 'react';
 import Link from "next/link";
-import '../src/app/globals.css';
+import '../globals.css';
 import { FormControl, InputLabel, MenuItem, FormHelperText, Typography, Button, TextField } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import CloseIcon from '@mui/icons-material/Close';

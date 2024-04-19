@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from "next/link";
-import '../src/app/globals.css';
-import { Button, Divider, TextField, Typography } from '@mui/material';
-import { EmailOutlined, GitHub, Google, LockOutlined } from '@mui/icons-material';
+import '../globals.css';
+import { Typography, TextField, Button, Divider } from '@mui/material';
+import { EmailOutlined, LockOutlined, Google, GitHub } from '@mui/icons-material';
 
-const signUp = () => {
+const account = () => {
     return(
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', width: '100vw', backgroundColor: '#e5e7eb', paddingLeft: '0 !important' }}>
             <div style={{ 
@@ -31,10 +31,10 @@ const signUp = () => {
                 </div>
 
                 <div>
-                    <img src = "https://cdn.glitch.global/d1543bd7-bc7d-4cd5-bfe2-2119128d273a/sign-up-8694031-6983270.png?v=1713207994194" style = {{width:'80%', margin: '5vh'}}></img>
+                    <img src = "https://cdn.glitch.global/d1543bd7-bc7d-4cd5-bfe2-2119128d273a/account-login-flat-illustration-vector.png?v=1713045332807" style = {{width:'80%', margin: '5vh'}}></img>
                 </div>
 
-                <Link href="/account">
+                <Link href="/">
                     <Button variant="contained" style={{ fontSize:'22px', width: '14vw', background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, borderRadius: '20px' }}>        
                         Back
                     </Button>
@@ -45,11 +45,11 @@ const signUp = () => {
                 {/* Main Content */}
                 <div style={{ padding: 4, width: '50%' }}>
                     <Typography variant="h5" component="h1" gutterBottom sx={{textAlign: 'left', color: '#7886d7', fontSize: '32px', fontWeight: '700'}}>
-                        Sign Up with Capital Crest
+                        Login
                     </Typography>
 
                     <Typography variant="subtitle1" gutterBottom sx={{textAlign: 'left', color: '#525252', fontSize: '16px', fontWeight: '400'}}>
-                        Create your account credentials today!
+                        Login to access your account
                     </Typography>
 
                     <form>
@@ -97,26 +97,29 @@ const signUp = () => {
                             }}
                         />
 
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                            <div>
+                                <Button size="small" sx={{color: '#7886d7'}}>
+                                    Forgot Password?
+                                </Button>
+                            </div>
+                        </div>
+
+
                         <Button variant="contained" style={{ width: '100%', backgroundColor: 'green', borderRadius: '20px' }}>        
-                            SIGN UP
+                            LOGIN
                         </Button>
 
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <div>
-                                <Link href = "/account">
+                                <Link href = "../signUp">
                                     <Button size="small" sx={{color: '#7886d7'}}>
-                                        Already have an account? Log In
+                                        Don't have an account? Sign up
                                     </Button>
                                 </Link>
                             </div>
                         </div>
-
-                        <div style = {{ display: 'flex', justifyContent: 'center' }}>
-                            <div style = {{ fontSize: '10px', width: "70%" }}>
-                                By continuing, you agree to the <b>Terms of Services</b>, <b>Privacy Policy</b>, and <b>Community Standard of UniMate</b>.
-                            </div>
-                        </div>
-
+                        
                         <Divider sx={{ my: 3, color: '#777' }}>Continue with Others</Divider>
 
                         <div style = {{display: 'flex', justifyContent: 'space-between'}}>
@@ -141,4 +144,4 @@ const signUp = () => {
     );
 }
 
-export default signUp;
+export default account;

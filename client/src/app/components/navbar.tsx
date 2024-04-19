@@ -27,16 +27,16 @@ const Navbar = () => {
                 <Link href="/" className="text-center">
                     Dashboard
                 </Link>
-                <Link href="/aboutUs" className="text-center">
+                <Link href="../aboutUs" className="text-center">
                     About Us
                 </Link>
                 <Link href="/" className="text-center">
                     View Transaction History
                 </Link>
-                <Link href="/viewSetBudget" className="text-center">
+                <Link href="../viewSetBudget" className="text-center">
                     View Budget
                 </Link>
-                <Link href="/help" className="text-center">
+                <Link href="../help" className="text-center">
                     Help and Support
                 </Link>
             </div>
@@ -49,7 +49,7 @@ const Navbar = () => {
                     </div> 
                 </div>
                 <div className="flex text-center items-center text-white font-bold ml-2">
-                    <Link href="/account">
+                    <Link href="../account">
                         Account
                     </Link>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../src/app/globals.css';
+import '../globals.css';
 import Navbar from '@/app/components/navbar';
 
 const aboutUs = () => {

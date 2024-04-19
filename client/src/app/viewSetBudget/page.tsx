@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "next/link";
-import '../src/app/globals.css';
+import '../globals.css';
 import BudgetBreakdown from '@/app/components/budgetBreakdown';
 import { dummyBudgetData, dummySummaryData } from '@/app/data';
 import LinearProgress from '@mui/joy/LinearProgress';
@@ -32,7 +32,7 @@ const viewSetBudget = () => {
                 </div>
                     <div>
                         {/* Set Budget Button */}
-                        <Link href="/setBudget" className="text-center">
+                        <Link href="../setBudget" className="text-center">
                             <Button variant="contained" style = {{marginRight: '1.5vw', backgroundColor:'green'}}>
                                 <AddIcon style = {{marginRight: '0.5vw'}}/>
                                     Set Budget

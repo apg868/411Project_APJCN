@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import '../src/app/globals.css';
+import '../globals.css';
 import { Button, TextField } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
