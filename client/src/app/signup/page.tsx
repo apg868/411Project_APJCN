@@ -44,7 +44,7 @@ const signUp = () => {
 
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', width: '70vw', justifyContent: 'center'}}>
                 {/* Main Content */}
-                <div style={{ padding: 4, width: '50%', borderRadius: '40px', padding: '20px', backgroundColor: '#e5e7eb', paddingTop: '50px', paddingBottom: '50px' }}>
+                <div style={{ width: '50%', borderRadius: '40px', padding: '20px', backgroundColor: '#e5e7eb', paddingTop: '50px', paddingBottom: '50px' }}>
                     <Typography variant="h5" component="h1" gutterBottom sx={{textAlign: 'left', color: '#7886d7', fontSize: '32px', fontWeight: '700'}}>
                         Sign Up with Capital Crest
                     </Typography>
