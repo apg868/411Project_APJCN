@@ -1,13 +1,31 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import Link from "next/link";
 import '../globals.css';
 import Navbar from '../components/navbar';
-import { dummyChartData, dummyBudgetData, dummySummaryData } from "../data";
+import { dummyChartData } from "../data";
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import DashboardVisualization from '../components/dashboardVisualization';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { Pagination } from '@mui/material';
 
 export function ViewTransaction() {
+
+const [page, setPage] = useState(1);
+  const rowsPerPage = 4;
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const paginatedData = dummyChartData.labels.slice((page - 1) * rowsPerPage, page * rowsPerPage);
+
   return (
     <div className="flex min-h-screen">
         {/* Navbar */}
@@ -38,24 +56,35 @@ export function ViewTransaction() {
                         </ToggleButtonGroup>
                     </div>
 
-                    <table className="min-w-full table-auto">
-                        <thead>
-                            <tr>
-                            <th className="px-4 py-2">Date</th>
-                            <th className="px-4 py-2">Category</th>
-                            <th className="px-4 py-2">Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {dummyChartData.labels.map((label, index) => (
-                            <tr key={index} style = {{textAlign: 'center'}}>
-                                <td className="border px-4 py-2">{label}</td>
-                                <td className="border px-4 py-2">{dummyChartData.category[index]}</td>
-                                <td className="border px-4 py-2">{dummyChartData.data[index]}</td>
-                            </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                    <TableContainer component={Paper}>
+                        <Table className="min-w-full" aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Date</TableCell>
+                                    <TableCell>Category</TableCell>
+                                    <TableCell>Amount</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {paginatedData.map((label, index) => (
+                                    <TableRow key={index}>
+                                    <TableCell component="th" scope="row">
+                                        {label}
+                                    </TableCell>
+                                    <TableCell>{dummyChartData.category[(page - 1) * rowsPerPage + index]}</TableCell>
+                                    <TableCell>{dummyChartData.data[(page - 1) * rowsPerPage + index]}</TableCell>
+                                    </TableRow>
+                                ))}
+                                </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <Pagination
+                    count={Math.ceil(dummyChartData.labels.length / rowsPerPage)}
+                    page={page}
+                    onChange={handleChangePage}
+                    color="primary"
+                    style = {{marginTop: '2vh'}}
+                    />
                 </div>
             </div>
         </main>
