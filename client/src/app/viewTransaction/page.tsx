@@ -3,7 +3,9 @@ import React from 'react';
 import Link from "next/link";
 import '../globals.css';
 import Navbar from '../components/navbar';
-import { dummyChartData } from '../data';
+import { dummyChartData, dummyBudgetData, dummySummaryData } from "../data";
+import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import DashboardVisualization from '../components/dashboardVisualization';
 
 export function ViewTransaction() {
   return (
@@ -15,24 +17,47 @@ export function ViewTransaction() {
 
         {/* Dashboard */}
         <main className="flex-1 p-8">
-            <table className="min-w-full table-auto">
-            <thead>
-                <tr>
-                <th className="px-4 py-2">Date</th>
-                <th className="px-4 py-2">Category</th>
-                <th className="px-4 py-2">Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                {dummyChartData.labels.map((label, index) => (
-                <tr key={index}>
-                    <td className="border px-4 py-2">{label}</td>
-                    <td className="border px-4 py-2">{dummyChartData.category[index]}</td>
-                    <td className="border px-4 py-2">{dummyChartData.data[index]}</td>
-                </tr>
-                ))}
-            </tbody>
-            </table>
+            <DashboardVisualization
+            labels={dummyChartData.labels}
+            data={dummyChartData.data}
+            />
+
+            <div className="bg-white rounded-lg shadow-md p-4 h-half">
+                {/* Replace with actual chart component */}
+                <div>
+                    <div style = {{display: 'flex', justifyContent:'space-between'}}>
+                        <b><h2>Transaction History</h2></b>
+                        <ToggleButtonGroup
+                            color="primary"
+                            exclusive
+                            aria-label="Platform"
+                            >
+                            <ToggleButton value="daily">Daily</ToggleButton>
+                            <ToggleButton value="weekly">Weekly</ToggleButton>
+                            <ToggleButton value="monthly">Monthly</ToggleButton>
+                        </ToggleButtonGroup>
+                    </div>
+
+                    <table className="min-w-full table-auto">
+                        <thead>
+                            <tr>
+                            <th className="px-4 py-2">Date</th>
+                            <th className="px-4 py-2">Category</th>
+                            <th className="px-4 py-2">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dummyChartData.labels.map((label, index) => (
+                            <tr key={index} style = {{textAlign: 'center'}}>
+                                <td className="border px-4 py-2">{label}</td>
+                                <td className="border px-4 py-2">{dummyChartData.category[index]}</td>
+                                <td className="border px-4 py-2">{dummyChartData.data[index]}</td>
+                            </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
     </div>
   );
