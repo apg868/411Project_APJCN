@@ -1,5 +1,5 @@
 const plaid = require('plaid');
-const client = require('../../plaidclient');
+const client = require('./plaidclient');
 
 
 //the result of this function being successful is a linktoken, which is used with plaid's library on the frontend

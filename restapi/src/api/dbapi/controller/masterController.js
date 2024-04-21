@@ -1,4 +1,4 @@
-const pool = require('../../../fdb');
+const pool = require('../../../../fdb');
 const queries = require('../queries/masterQueries');
 
 // GET

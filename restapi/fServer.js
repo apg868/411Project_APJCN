@@ -1,3 +1,4 @@
+require('dotenv').config(); // necessary to load the env. variables
 const express = require('express'); // import Express
 const finances = require('./src/api/routes'); // import router
 

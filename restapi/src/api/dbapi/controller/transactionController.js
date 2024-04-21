@@ -1,6 +1,6 @@
-const pool = require('../../../fdb');
+const pool = require('../../../../fdb');
 const queries = require('../queries/transactionQueries');
-const balanceC = require('../controller/balancesController')
+const balanceC = require('./balancesController')
 
 // GET
 

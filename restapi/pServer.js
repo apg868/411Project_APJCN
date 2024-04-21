@@ -5,7 +5,7 @@ const cors = require('cors');
 
 
 // Require routers from your routes directory
-const plaidRouteList = require('./src/routes/plaidRoutes.js'); // Ensure this router is set up to use the Plaid client from a separate config
+const plaidRouteList = require('./src/api/plaidapi/plaidRoutes'); // Ensure this router is set up to use the Plaid client from a separate config
 
 // Create the Express application
 const app = express();

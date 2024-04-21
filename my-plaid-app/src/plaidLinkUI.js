@@ -39,7 +39,7 @@ const PlaidLinkUI = () => {
 
   return (
     <button onClick={() => open()} disabled={!ready || !linkToken}>
-      Connect a bank account
+      Connect a bank account.
     </button>
   );
 };
