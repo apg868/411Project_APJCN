@@ -30,7 +30,7 @@ const Navbar = () => {
                 <Link href="../aboutUs" className="text-center">
                     About Us
                 </Link>
-                <Link href="../dashboard/view-transaction" className="text-center">
+                <Link href="../viewTransaction" className="text-center">
                     View Transaction History
                 </Link>
                 <Link href="../viewSetBudget" className="text-center">
