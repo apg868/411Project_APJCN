@@ -52,9 +52,9 @@ const Budget: React.FC<BudgetProps> = ({ budgetData, summaryData }) => {
             
           </div>
           <div style={{display: "flex", flexDirection: "column"}}>
-            <span style ={{marginTop: "1vh"}}><b>Budget:</b> {summaryData.budget}</span>
-            <span style ={{marginTop: "1vh"}}><b>Spent So Far:</b> {summaryData.spentSoFar}</span>
-            <span style ={{marginTop: "1vh"}}><b>Left for Budget:</b> {summaryData.leftForBudget}</span>
+            <span style ={{marginTop: "1vh"}}><b>Budget:</b> {summaryData.budget.toFixed(2)}</span>
+            <span style ={{marginTop: "1vh"}}><b>Spent So Far:</b> {summaryData.spentSoFar.toFixed(2)}</span>
+            <span style ={{marginTop: "1vh"}}><b>Left for Budget:</b> {summaryData.leftForBudget.toFixed(2)}</span>
           </div>
         </div>
       </div>

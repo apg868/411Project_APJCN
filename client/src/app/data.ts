@@ -1,8 +1,8 @@
 // Dummy data for visualization
 export const dummyChartData = {
-    labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5", "Date 6", "Date 7"],
-    data: [30, 50.47, 45, 60, 70, 126.87, 120],
-    category: ["Car Payments", "Groceries", "Rent + Utilities", "Car Payments", "Groceries", "Rent + Utilities", "Car Payments"]
+    labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5", "Date 6", "Date 7", "Date 8"],
+    data: [30, 50.47, 45, 60, 70, 126.87, 120, 137.88],
+    category: ["Car Payments", "Groceries", "Rent + Utilities", "Car Payments", "Groceries", "Rent + Utilities", "Car Payments", "Groceries"]
   };
   
 // Dummy data for budget breakdown
