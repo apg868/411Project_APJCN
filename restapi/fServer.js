@@ -1,6 +1,6 @@
 require('dotenv').config(); // necessary to load the env. variables
 const express = require('express'); // import Express
-const finances = require('./src/api/routes'); // import router
+const finances = require('./src/api/dbapi/routes'); // import router
 
 const app = express(); // create Express app.
 const port = 3000; // assign local port number
