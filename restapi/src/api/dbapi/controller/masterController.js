@@ -49,8 +49,36 @@ const addUserWithEmail = (req, res) => {
   });
 };
 
+const checkForEmail = async (email) => {
+  try {
+    const results = await pool.query(queries.getUserWithEmail, [email]);
+    return results.rows.length > 0;
+  } catch (error) {
+    console.error('Database error during email check:', error);
+    throw error;  // Rethrow to handle in the caller function
+  }
+};
+
+const patchToken = async (email, p_token) => {
+  try {
+    const userExists = await checkForEmail(email);
+    if (!userExists) {
+      throw new Error('User not found');
+    }
+    const result = await pool.query(queries.updatePToken, [email, p_token]);
+    if (result.rowCount === 0) {
+      throw new Error('No rows updated; user not found');
+    }
+    return 'Token updated successfully';
+  } catch (error) {
+    console.error('Error updating token:', error);
+    throw error; // Rethrow the error to be handled by the caller
+  }
+};
+
 module.exports = {
   getUsers,
   getUserWithEmail,
-  addUserWithEmail
+  addUserWithEmail,
+  patchToken,
 }

@@ -1,17 +1,15 @@
 const plaid = require('plaid');
-const client = require('./plaidclient');
-const masterC =require('./../dbapi/controller/masterController')
-
-
-//anywhere this is used, we will have to subsitute it as a local variable, as it is fed from the frontend props exclusively
-const USEREMAIL = 'JSONjiang@bu.edu' //request.body.email; // Assuming the email is passed in the request body - do through react context
+const client = require('../../plaidclient');
 
 
 //the result of this function being successful is a linktoken, which is used with plaid's library on the frontend
 exports.createLinkTokenHandler = async function(request, response) {
     // Get the client_user_id by searching for the current user
     //const user = await User.find('Pio'); // Simulated user finding process, to be fixed with real data in future
-    const clientUserId = 'user_good'; // MUST CHANGE WITH OAUTH USERNAME WHEN AVAILABLE
+    //const clientUserId = user.id; // Assuming 'user' has an 'id' property
+    const clientUserId = 'user_good';
+
+    // Renamed variable to avoid conflict with the 'request' parameter
     const plaidRequest = {
       user: {
         client_user_id: clientUserId,
@@ -43,14 +41,16 @@ exports.exchangePublicToken = async function(request, response) {
     });
     const accessToken = exchangeResponse.data.access_token;
     const itemID = exchangeResponse.data.item_id;
-    masterC.patchToken(USEREMAIL, accessToken);
-    console.log("database has saved useremail, accesstoken")
-    console.log(accessToken, "is your 6h+ access token to be stored in the DB!");
-    response.json({ accessToken});
+    console.log(accessToken, "is your 'permanent' access token to be stored in the DB!");
+    // Store the accessToken and itemID in the database associated with the user
+    //await pool.query('UPDATE users SET plaid_access_token = $1, item_id = $2 WHERE id = $3', [accessToken, itemID, userId]);
+
+    response.json({ accessToken, itemID });
   } catch (error) {
     console.error("Error during public token exchange:", error.response ? error.response.data : error);
     response.status(500).json({ error: error.message || 'Unknown error during token exchange' });
   }
+
 };
 
 
