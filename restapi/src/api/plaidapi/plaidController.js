@@ -43,7 +43,8 @@ exports.exchangePublicToken = async function(request, response) {
     });
     const accessToken = exchangeResponse.data.access_token;
     const itemID = exchangeResponse.data.item_id;
-    masterC.patchToken(USEREMAIL, accessToken);
+    const transactions = masterC.patchToken(USEREMAIL, accessToken);
+    console.log(transactions)
     console.log("database has saved useremail, accesstoken")
     console.log(accessToken, "is your 6h+ access token to be stored in the DB!");
     response.json({ accessToken});
@@ -53,23 +54,22 @@ exports.exchangePublicToken = async function(request, response) {
   }
 };
 
+exports.fetchTransactions = async (request, response) => {
+  const email = req.params.email; // Assuming you pass email as a URL parameter
 
+  // Retrieve access token from your database
+  const accessToken = await getAccessTokenFromDB(email);
 
-// exports.createLinkTokenHandler = async function(request, response) {
-//   // Simulated response to mimic a successful creation of a link token
-//   const simulatedResponse = {
-//       link_token: "mock-link-token-123456789",  // Example token
-//       expiration: new Date(new Date().getTime() + 30 * 60000).toISOString(), // Expires in 30 minutes
-//       request_id: "mock-request-id-987654321"  // Example request ID
-//   };
-
-//   try {
-//       // Simulate an asynchronous operation with a delay to mimic real API call
-//       setTimeout(() => {
-//           response.json(simulatedResponse);
-//       }, 500);  // Delay response by 500 milliseconds
-//   } catch (error) {
-//       console.error("Error in creating link token:", error);
-//       response.status(500).json({ error: "Failed to create link token" });
-//   }
-// };
+  try {
+      const response = await client.transactionsGet({
+          access_token: accessToken,
+          start_date: '2021-01-01', // Adjust dates as needed
+          end_date: '2021-02-01'
+      });
+      console.log('Transactions fetched successfully', response.data.transactions);
+      res.json(response.data.transactions);
+  } catch (error) {
+      console.error("Error fetching transactions:", error.response ? error.response.data : error.message);
+      res.status(500).json({ error: error.message });
+  }
+};
