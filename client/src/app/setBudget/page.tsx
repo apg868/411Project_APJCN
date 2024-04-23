@@ -12,6 +12,8 @@ const setBudget = () => {
     const [interval, setInterval] = React.useState('');
     const [categories, setCategories] = React.useState('');
     const [additionalFields, setAdditionalFields] = useState(1);
+    const [inputValues, setInputValues] = React.useState(['']);
+    const [errors, setErrors] = React.useState([false]);
 
     const handleInterval = (event: SelectChangeEvent) => {
         setInterval(event.target.value);
@@ -27,6 +29,19 @@ const setBudget = () => {
 
     const handleRemoveEntry = () => {
         setAdditionalFields(prev => prev - 1);
+    };
+
+    const handleInputChange = (index, value) => {
+        const newInputValues = [...inputValues];
+        const newErrors = [...errors];
+        newInputValues[index] = value;
+        if (!/^\d+(\.\d{0,2})?$/.test(value)) {
+            newErrors[index] = true;
+        } else {
+            newErrors[index] = false;
+        }
+        setInputValues(newInputValues);
+        setErrors(newErrors);
     };
     
     return (
@@ -60,7 +75,16 @@ const setBudget = () => {
                                     </Typography>
 
                                     {/* Textfield to enter amount */}
-                                    <TextField id="outlined-basic" label="Amount" variant="outlined" helperText="Amount" sx={{ m: 1, minWidth: '50%' }}/>
+                                    <TextField
+                                        id={`outlined-basic-${index}`}
+                                        label="Amount"
+                                        variant="outlined"
+                                        sx={{ m: 1, minWidth: '50%' }}
+                                        value={inputValues[index]}
+                                        onChange={(e) => handleInputChange(index, e.target.value)}
+                                        error={errors[index]}
+                                        helperText={errors[index] ? "Only numbers up to 2 decimal places allowed" : "Amount"}
+                                    />
                                     
                                     
                                     {/* Interval Dropdown */}
