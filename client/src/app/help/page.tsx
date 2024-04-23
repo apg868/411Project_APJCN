@@ -44,7 +44,7 @@ const help = () => {
                     fontSize: '38px', 
                     fontWeight: '950', 
                     textAlign: 'center', 
-                    background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, 
+                    background: `url('https://cdn.glitch.me/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif')`, 
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     color: 'transparent'
@@ -91,7 +91,7 @@ const help = () => {
                             />
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '4vh' }}>
-                            <Button variant="contained" style={{ fontSize:'1rem', width: '20vw', background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, borderRadius: '20px' }}>        
+                            <Button variant="contained" style={{ fontSize:'1rem', width: '20vw', background: `url('https://cdn.glitch.me/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif')`, borderRadius: '20px' }}>        
                                 Send Feedback
                             </Button>
                         </div>

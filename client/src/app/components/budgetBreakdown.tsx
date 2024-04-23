@@ -14,8 +14,8 @@ interface BudgetProps {
 // Budget Breakdown Component
 const budgetBreakdown: React.FC<BudgetProps> = ({budgetData}) => {
   return (
-    <div className="flex-1" style={{ height: "41vh" }}>
-        <div className="bg-white rounded-lg shadow-md p-4 h-full">
+    <div className="flex-1" style={{ height: "44vh", overflowY: "auto" }}>
+        <div className="bg-white rounded-lg shadow-md p-4 h-full" style={{ overflowY: "auto" }}>
           <b><h2 style={{marginBottom: "2vh"}}>Budget Breakdown</h2></b>
           {/* List of budget items */}
           {budgetData.map((item, index) => (
@@ -30,7 +30,7 @@ const budgetBreakdown: React.FC<BudgetProps> = ({budgetData}) => {
           ))}
         </div>
     </div>
-  );
+  ); 
 };
 
 export default budgetBreakdown;

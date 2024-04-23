@@ -21,7 +21,7 @@ const account = () => {
                 <div style={{ 
                     fontWeight: '900', 
                     textAlign: 'center', 
-                    background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, 
+                    background: `url('https://cdn.glitch.me/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif')`, 
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     color: 'transparent',
@@ -40,7 +40,7 @@ const account = () => {
                 </div>
 
                 <Link href="/">
-                    <Button variant="contained" style={{ fontSize:'22px', width: '14vw', background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, borderRadius: '20px' }}>        
+                    <Button variant="contained" style={{ fontSize:'22px', width: '14vw', background: `url('https://cdn.glitch.me/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif')`, borderRadius: '20px' }}>        
                         Back
                     </Button>
                 </Link>

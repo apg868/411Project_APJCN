@@ -23,7 +23,7 @@ const viewSetBudget = () => {
                 <div style={{ 
                     fontSize: '2rem', 
                     fontWeight: '1000', 
-                    background: `url('https://cdn.glitch.com/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif?v=1609615951326')`, 
+                    background: `url('https://cdn.glitch.me/d1543bd7-bc7d-4cd5-bfe2-2119128d273a%2Fparticles.gif')`, 
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     color: 'transparent'
@@ -72,7 +72,7 @@ const viewSetBudget = () => {
                         </div>
                     </div>
                     <div>
-                        <div style={{ fontSize: '2em', fontWeight: 'bold', color: 'green' }}>${dummySummaryData.leftForBudget}</div>
+                        <div style={{ fontSize: '2em', fontWeight: 'bold', color: 'green' }}>${dummySummaryData.leftForBudget.toFixed(2)}</div>
                         <div style = {{textAlign: 'center'}}>Total Remaining 
                             <Tooltip title={<span style={{ fontSize: '1.5em' }}>This is the remaining amount you have to spend based on your budget</span>}>
                                 <InfoOutlinedIcon/> 

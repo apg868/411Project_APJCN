@@ -40,7 +40,7 @@ const Navbar = () => {
                     Help and Support
                 </Link>
                 <Link href="../dashboard2/homePage" className="text-center">
-                    Dashboard - Charles
+                    Dashboard - Before Login
                 </Link>
             </div>
 

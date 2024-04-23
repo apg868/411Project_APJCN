@@ -1,17 +1,21 @@
 // Dummy data for visualization
 export const dummyChartData = {
-    labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5", "Date 6", "Date 7", "Date 8"],
-    data: [30, 50.47, 45, 60, 70, 126.87, 120, 132.88],
-    category: ["Car Payments", "Groceries", "Rent + Utilities", "Car Payments", "Groceries", "Rent + Utilities", "Car Payments", "Groceries"]
+    labels: ["Date 1", "Date 2", "Date 3", "Date 4", "Date 5", "Date 6", "Date 7", "Date 8", "Date 9"],
+    data: [30, 50.47, 45, 60, 70, 126.87, 120, 132.88, 100],
+    category: ["Food", "Housing", "Utilities", "Insurance", "Entertainment", "Transportation", "Miscellaneous", "Food", "Housing"]
   };
 
   // if i create new category, gotta update budget + handle in linear bar chart
   
 // Dummy data for budget breakdown
 let dummyBudgetData = [
-    { category: "Car Payments", spent: 0, budget: 500 },
-    { category: "Groceries", spent: 0, budget: 300 },
-    { category: "Rent + Utilities", spent: 0, budget: 700 },
+    { category: "Food", spent: 0, budget: 500 },
+    { category: "Housing", spent: 0, budget: 230 },
+    { category: "Utilities", spent: 0, budget: 300 },
+    { category: "Insurance", spent: 0, budget: 90 },
+    { category: "Entertainment", spent: 0, budget: 300 },
+    { category: "Transportation", spent: 0, budget: 200 },
+    { category: "Miscellaneous", spent: 0, budget: 300 },
 ];
 
 dummyChartData.category.forEach((category, index) => {

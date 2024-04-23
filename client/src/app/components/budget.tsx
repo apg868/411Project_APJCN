@@ -20,6 +20,11 @@ interface BudgetProps {
   summaryData: SummaryData;
 }
 
+const sizing = {
+  margin: { right: 320 },
+  legend: { hidden: false},
+};
+
 // Budget Component
 const Budget: React.FC<BudgetProps> = ({ budgetData, summaryData }) => {
   return (
@@ -39,14 +44,21 @@ const Budget: React.FC<BudgetProps> = ({ budgetData, summaryData }) => {
               series={[
                 {
                   data: [
-                    { id: 0, value: budgetData[0].spent, label: budgetData[0].category },
-                    { id: 1, value: budgetData[1].spent, label: budgetData[1].category },
-                    { id: 2, value: budgetData[2].spent, label: budgetData[2].category },
-                    { id: 3, value: summaryData.leftForBudget, label: "Left" },
+                    ...budgetData.map((item, index) => ({
+                      id: index,
+                      value: item.spent,
+                      label: item.category,
+                    })),
+                    {
+                      id: budgetData.length + 1,
+                      value: summaryData.leftForBudget,
+                      label: "Left",
+                    },
                   ],
                 },
               ]}
-              width={500}
+              {...sizing}
+              width={520}
               height={180}
             />
             
