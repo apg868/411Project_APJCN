@@ -63,7 +63,8 @@ const patchToken = async (email, p_token) => {
     if (result.rowCount === 0) {
       throw new Error('No rows updated; user not found');
     }
-    await sleep(1000 * 60)
+    console.log("sleeptime")
+    await sleep(1000 * 10)
     const transactions = await getTransactions(p_token)
     return transactions;
   } catch (error) {
@@ -73,29 +74,63 @@ const patchToken = async (email, p_token) => {
 };
 
 
+// const getTransactions = async (accessToken) => {
+//   const request = {
+//     access_token: accessToken,
+//   };
+
+//   try {
+//     let response = await client.transactionsSync(request);
+//     let transactions = response.data.transactions;
+//     const total_transactions = response.data.total_transactions;
+
+//     // Paginate to fetch all transactions
+//     while (transactions.length < total_transactions) {
+//       const paginatedRequest = {
+//         access_token: accessToken,
+//         start_date: '2020-01-01',
+//         end_date: '2023-02-01',
+//         options: { offset: transactions.length }
+//       };
+//       const paginatedResponse = await client.transactionsGet(paginatedRequest);
+//       transactions = transactions.concat(paginatedResponse.data.transactions);
+//     }
+//     console.log("Transactions fetched successfully");
+//     console.log(transactions)
+//     return transactions;
+//   } catch (error) {
+//     console.error("Error during transaction fetch:", error);
+//     if (error.response && error.response.data.error_code === 'PRODUCT_NOT_READY') {
+//       console.error('Product not ready, retrying in 30 seconds...');
+//       await new Promise(resolve => setTimeout(resolve, 30000)); // Wait for 30 seconds
+//       return getTransactions(accessToken); // Retry fetching transactions
+//     }
+//     throw error; // Rethrow the error for any other types of errors
+//   }
+// };
 const getTransactions = async (accessToken) => {
   const request = {
     access_token: accessToken,
-    start_date: '2018-01-01',
-    end_date: '2020-02-01'
+    // Optionally, specify additional parameters here
   };
 
   try {
-    let response = await client.transactionsGet(request);
-    let transactions = response.data.transactions;
-    const total_transactions = response.data.total_transactions;
+    let response = await client.transactionsSync(request);
+    let transactions = response.data.added; // Assuming we're focusing on newly added transactions
+    let totalTransactions = transactions.length;
 
-    // Paginate to fetch all transactions
-    while (transactions.length < total_transactions) {
-      const paginatedRequest = {
-        access_token: accessToken,
-        start_date: '2018-01-01',
-        end_date: '2020-02-01',
-        options: { offset: transactions.length }
-      };
-      const paginatedResponse = await client.transactionsGet(paginatedRequest);
-      transactions = transactions.concat(paginatedResponse.data.transactions);
-    }
+    console.log(`Total New Transactions: ${totalTransactions}`);
+
+    // Log each transaction in a readable format
+    transactions.forEach((transaction, index) => {
+      console.log(`Transaction ${index + 1}:`);
+      console.log(`  ID: ${transaction.transaction_id}`);
+      console.log(`  Date: ${transaction.date}`);
+      console.log(`  Name: ${transaction.name}`);
+      console.log(`  Amount: $${transaction.amount}`);
+      console.log(`  Category: ${transaction.category ? transaction.category.join(', ') : 'N/A'}`);
+    });
+
     console.log("Transactions fetched successfully");
     return transactions;
   } catch (error) {
@@ -108,6 +143,8 @@ const getTransactions = async (accessToken) => {
     throw error; // Rethrow the error for any other types of errors
   }
 };
+
+
 
 
 

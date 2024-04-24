@@ -6,5 +6,6 @@ const plaidController = require('./plaidController');
 
 router.post('/create_link_token', createLinkTokenHandler);
 router.post('/exchange_public_token', plaidController.exchangePublicToken);
+router.post('/update_transactions', plaidController.updateTransactions)
 
 module.exports = router;

@@ -17,9 +17,9 @@ exports.createLinkTokenHandler = async function(request, response) {
         client_user_id: clientUserId,
       },
       client_name: 'Plaid Test App',
-      products: ['auth'],
+      products: ['auth', 'transactions'],
       language: 'en',
-      webhook: 'https://webhook.example.com',
+      webhook: 'https://ca6a-128-197-29-249.ngrok-free.app/plaid/webhook',
       country_codes: ['US'],
     };
     try {
@@ -43,8 +43,7 @@ exports.exchangePublicToken = async function(request, response) {
     });
     const accessToken = exchangeResponse.data.access_token;
     const itemID = exchangeResponse.data.item_id;
-    const transactions = masterC.patchToken(USEREMAIL, accessToken);
-    console.log(transactions)
+    masterC.patchToken(USEREMAIL, accessToken);
     console.log("database has saved useremail, accesstoken")
     console.log(accessToken, "is your 6h+ access token to be stored in the DB!");
     response.json({ accessToken});
@@ -54,22 +53,34 @@ exports.exchangePublicToken = async function(request, response) {
   }
 };
 
-exports.fetchTransactions = async (request, response) => {
-  const email = req.params.email; // Assuming you pass email as a URL parameter
+// exports.fetchTransactions = async (request, response) => {
+//   const email = req.params.email; // Assuming you pass email as a URL parameter
 
-  // Retrieve access token from your database
+//   // Retrieve access token from your database
+//   const accessToken = await getAccessTokenFromDB(email);
+
+//   try {
+//       const response = await client.transactionsGet({
+//           access_token: accessToken,
+//           start_date: '2021-01-01', // Adjust dates as needed
+//           end_date: '2021-02-01'
+//       });
+//       console.log('Transactions fetched successfully', response.data.transactions);
+//       res.json(response.data.transactions);
+//   } catch (error) {
+//       console.error("Error fetching transactions:", error.response ? error.response.data : error.message);
+//       res.status(500).json({ error: error.message });
+//   }
+// };
+
+exports.updateTransactions = async (request, response) => {
+  const email = req.params.email;
   const accessToken = await getAccessTokenFromDB(email);
-
   try {
-      const response = await client.transactionsGet({
-          access_token: accessToken,
-          start_date: '2021-01-01', // Adjust dates as needed
-          end_date: '2021-02-01'
-      });
-      console.log('Transactions fetched successfully', response.data.transactions);
-      res.json(response.data.transactions);
-  } catch (error) {
-      console.error("Error fetching transactions:", error.response ? error.response.data : error.message);
-      res.status(500).json({ error: error.message });
+    masterC.getTransactions(accessToken)
   }
-};
+  catch(error){
+    console.log("error! transactions not updated", error)
+  }
+
+}
