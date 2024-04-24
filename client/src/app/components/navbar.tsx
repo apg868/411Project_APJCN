@@ -4,6 +4,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
+import SigninButton from './SigninButton';
 
 const Navbar = () => {
     return(
@@ -52,9 +53,7 @@ const Navbar = () => {
                     </div> 
                 </div>
                 <div className="flex text-center items-center text-white font-bold ml-2">
-                    <Link href="../account">
-                        Account
-                    </Link>
+                    <SigninButton />
                 </div>
             </div>
         </div>
