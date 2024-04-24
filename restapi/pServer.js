@@ -3,7 +3,6 @@ require('dotenv').config(); // Ensures that environment variables are loaded
 const express = require('express');
 const cors = require('cors');
 
-
 // Require routers from your routes directory
 const plaidRouteList = require('./src/api/plaidapi/plaidRoutes'); // Ensure this router is set up to use the Plaid client from a separate config
 
@@ -16,6 +15,7 @@ app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
 
 // Test route to confirm server is running
 app.get("/", (req, res) => {
