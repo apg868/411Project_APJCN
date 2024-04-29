@@ -1,6 +1,6 @@
 ﻿# 411Project_APJCN
 ## Description
-Our platform is an expense and budget tracking application.
+Our platform is an expense and budget tracking application. Much of the functionality is based around custom database logic, as well as Plaid's API, which enables fetching of user bank information, transactions, authorization tools, among other uses. Below are a couple of screenshots of the frontend prototype. All relevant backend logic as well as frontend code can be accessed through this repository.
 
 ## Tech Stack
 ### Backend
