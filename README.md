@@ -36,5 +36,5 @@ blah blah
   <li><a href = "https://www.linkedin.com/in/nguyenle04/">Nguyen Le</a></li>
   <li><a href = "https://www.linkedin.com/in/james-davin-bu/">James Davin</a></li>
   <li><a href = "https://www.linkedin.com/in/andrew-juang/">Andrew Juang</a></li>
-  <li><a>Beaudlaire Jeancharles</a></li>
+  <li><a href = "">Beaudlaire Jeancharles</a></li>
 </ul>
