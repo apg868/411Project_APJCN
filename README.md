@@ -1,6 +1,6 @@
 ﻿# 411Project_APJCN
 ## Description
-Blah Blah
+Our platform is an expense and budget tracking application.
 
 ## Tech Stack
 ### Backend
