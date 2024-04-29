@@ -24,14 +24,12 @@ Our platform is an expense and budget tracking application. Much of the function
   <li>Plaid Sandbox</li>
 </ul>
 
-## Running
-To run the project
-```
-npm run dev
-```
-
 ## Installations
-blah blah
+All packages are managed by npm both frontend and backend.
+Once repository is cloned, just quick install with the following command:
+```
+npm install
+```
 
 ## About Us
 <ul>
