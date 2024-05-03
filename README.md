@@ -39,3 +39,6 @@ npm install
   <li><a href = "https://www.linkedin.com/in/andrew-juang/">Andrew Juang</a></li>
   <li><a href = "">Beaudlaire Jeancharles</a></li>
 </ul>
+
+## Video
+<a href = "https://drive.google.com/file/d/1dY1zuPF6k7FLyk0_L1VYMiZMwHli0MMJ/view?usp=sharing">Click here to access a short demo of the project</a>
