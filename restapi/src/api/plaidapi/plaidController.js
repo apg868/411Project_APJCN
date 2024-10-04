@@ -45,7 +45,7 @@ exports.exchangePublicToken = async function(request, response) {
     const itemID = exchangeResponse.data.item_id;
     masterC.patchToken(USEREMAIL, accessToken);
     console.log("database has saved useremail, accesstoken")
-    console.log(accessToken, "is your 6h+ access token to be stored in the DB!");
+    console.log(accessToken, "is your permanent access token to be stored in the DB!");
     response.json({ accessToken});
   } catch (error) {
     console.error("Error during public token exchange:", error.response ? error.response.data : error);
