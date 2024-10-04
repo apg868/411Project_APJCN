@@ -1,5 +1,8 @@
 const pool = require('../../../../fdb');
 const queries = require('../queries/masterQueries');
+const plaid = require('plaid');
+const client = require('./../../plaidapi/plaidclient')
+
 
 // GET
 
@@ -49,32 +52,115 @@ const addUserWithEmail = (req, res) => {
   });
 };
 
-const checkForEmail = async (email) => {
-  try {
-    const results = await pool.query(queries.getUserWithEmail, [email]);
-    return results.rows.length > 0;
-  } catch (error) {
-    console.error('Database error during email check:', error);
-    throw error;  // Rethrow to handle in the caller function
-  }
+const sleep = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
 };
+
 
 const patchToken = async (email, p_token) => {
   try {
-    const userExists = await checkForEmail(email);
-    if (!userExists) {
-      throw new Error('User not found');
-    }
     const result = await pool.query(queries.updatePToken, [email, p_token]);
     if (result.rowCount === 0) {
       throw new Error('No rows updated; user not found');
     }
-    return 'Token updated successfully';
+    console.log("sleeptime")
+    await sleep(1000 * 10)
+    const transactions = await getTransactions(p_token)
+    return transactions;
   } catch (error) {
     console.error('Error updating token:', error);
     throw error; // Rethrow the error to be handled by the caller
   }
 };
+
+
+// const getTransactions = async (accessToken) => {
+//   const request = {
+//     access_token: accessToken,
+//   };
+
+//   try {
+//     let response = await client.transactionsSync(request);
+//     let transactions = response.data.transactions;
+//     const total_transactions = response.data.total_transactions;
+
+//     // Paginate to fetch all transactions
+//     while (transactions.length < total_transactions) {
+//       const paginatedRequest = {
+//         access_token: accessToken,
+//         start_date: '2020-01-01',
+//         end_date: '2023-02-01',
+//         options: { offset: transactions.length }
+//       };
+//       const paginatedResponse = await client.transactionsGet(paginatedRequest);
+//       transactions = transactions.concat(paginatedResponse.data.transactions);
+//     }
+//     console.log("Transactions fetched successfully");
+//     console.log(transactions)
+//     return transactions;
+//   } catch (error) {
+//     console.error("Error during transaction fetch:", error);
+//     if (error.response && error.response.data.error_code === 'PRODUCT_NOT_READY') {
+//       console.error('Product not ready, retrying in 30 seconds...');
+//       await new Promise(resolve => setTimeout(resolve, 30000)); // Wait for 30 seconds
+//       return getTransactions(accessToken); // Retry fetching transactions
+//     }
+//     throw error; // Rethrow the error for any other types of errors
+//   }
+// };
+const getTransactions = async (accessToken) => {
+  const request = {
+    access_token: accessToken,
+    // Optionally, specify additional parameters here
+  };
+
+  try {
+    let response = await client.transactionsSync(request);
+    let transactions = response.data.added; // Assuming we're focusing on newly added transactions
+    let totalTransactions = transactions.length;
+
+    console.log(`Total New Transactions: ${totalTransactions}`);
+
+    // Log each transaction in a readable format
+    transactions.forEach((transaction, index) => {
+      console.log(`Transaction ${index + 1}:`);
+      console.log(`  ID: ${transaction.transaction_id}`);
+      console.log(`  Date: ${transaction.date}`);
+      console.log(`  Name: ${transaction.name}`);
+      console.log(`  Amount: $${transaction.amount}`);
+      console.log(`  Category: ${transaction.category ? transaction.category.join(', ') : 'N/A'}`);
+    });
+
+    console.log("Transactions fetched successfully");
+    return transactions;
+  } catch (error) {
+    console.error("Error during transaction fetch:", error);
+    if (error.response && error.response.data.error_code === 'PRODUCT_NOT_READY') {
+      console.error('Product not ready, retrying in 30 seconds...');
+      await new Promise(resolve => setTimeout(resolve, 30000)); // Wait for 30 seconds
+      return getTransactions(accessToken); // Retry fetching transactions
+    }
+    throw error; // Rethrow the error for any other types of errors
+  }
+};
+
+
+
+
+
+
+
+
+
+const setTransactions = (user_id, p_token) => {
+
+
+}
+
+
+
+//const filltransactionstempdata (token):
+
 
 module.exports = {
   getUsers,
